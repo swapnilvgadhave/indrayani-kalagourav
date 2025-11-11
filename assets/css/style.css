@@ -186,3 +186,95 @@ body{
   .grid-card{width:100%}
   .grid-card img{aspect-ratio:16/9;max-height:240px}
 }
+/* ===== FINAL POLISH: remove top space, align logo + title, brighten fonts ===== */
+
+/* remove top gap */
+body, .header-full.plain-header.full-header-horiz {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* pull header upward */
+.header-inner {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+/* align logo very close to title */
+.brand-wrap.full-width {
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.brand-left {
+  margin: 0;
+  padding: 0;
+}
+.brand-logo {
+  width: 150px;
+  height: auto;
+  margin-right: 10px;
+  object-fit: contain;
+}
+
+/* make foundation name brighter */
+.brand-title {
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  line-height: 1.05;
+  background: linear-gradient(90deg, #ff1744, #ff9100, #00bcd4, #00e676);
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 0.8px rgba(0,0,0,0.4);
+  text-shadow: 0 6px 22px rgba(0,0,0,0.55);
+  font-weight: 900;
+  margin-bottom: 0;
+}
+
+/* Marathi subtitle also bright */
+.brand-title.marathi {
+  background: linear-gradient(90deg, #ff6f00, #ff3d00, #00c853);
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 0.5px rgba(0,0,0,0.35);
+  text-shadow: 0 4px 14px rgba(0,0,0,0.45);
+  font-weight: 800;
+}
+
+/* make all section headings and card headers bright & readable */
+.section-heading,
+.card-header,
+.grid-card h4,
+.lead-name,
+.tab {
+  background: linear-gradient(90deg, #ff1744, #ff9100, #00bcd4);
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 0.6px rgba(0,0,0,0.3);
+  text-shadow: 0 4px 16px rgba(0,0,0,0.45);
+  font-weight: 900;
+}
+
+/* ensure page content sits close below header */
+.main {
+  padding-top: 8px;
+}
+
+/* reduce hero top margin */
+.hero-wide {
+  margin-top: 12px;
+}
+
+/* responsive: stack logo/title properly */
+@media (max-width: 720px) {
+  .brand-wrap.full-width {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .brand-logo {
+    margin: 0 auto 4px;
+    width: 130px;
+  }
+  .brand-title {
+    font-size: 2rem;
+  }
+}

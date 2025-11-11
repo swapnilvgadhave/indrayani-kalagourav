@@ -248,3 +248,55 @@ body {
   .lead-grid { justify-content: center; gap: 20px; }
   .lead-card { width: 90%; }
 }
+/* ===== PATCH: enhanced foundation name, nav tabs, card headers ===== */
+
+/* Foundation name brighter, bigger, closer to logo */
+.brand-title {
+  font-size: 3.6rem !important;
+  letter-spacing: 1px;
+  line-height: 1.05;
+  color: transparent;
+  background: linear-gradient(90deg, #ff007f, #ffa600, #00c9ff, #7cffb2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 0.8px rgba(0,0,0,0.35);
+  text-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  margin-top: 0 !important;
+}
+
+.brand-left {
+  margin-right: 10px;
+}
+
+/* Tabs colorful gradient background and white text */
+.tab {
+  background: linear-gradient(90deg, #ff6f91, #ff9671, #ffc75f);
+  color: #fff !important;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  border: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+.tab:hover {
+  background: linear-gradient(90deg, #ff0066, #ff9800);
+  transform: translateY(-2px);
+}
+.tab.active {
+  background: linear-gradient(90deg, #00e5ff, #00c2ff);
+  color: #fff;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+
+/* Card headers and main points visible shadow */
+.card-header,
+.section-heading,
+.card-title {
+  text-shadow: 0 3px 10px rgba(0,0,0,0.35) !important;
+  -webkit-text-stroke: 0.5px rgba(0,0,0,0.25);
+}
+
+.card-header {
+  background: linear-gradient(90deg, #ff007f, #ffa600);
+  font-size: 1.25rem;
+  font-weight: 900;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}

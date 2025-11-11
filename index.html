@@ -5,23 +5,14 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Indrayani Kalagourav Foundation</title>
   <meta name="description" content="Indrayani Kalagourav Foundation — Art · Education · Humanity" />
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <!-- PRELOADER -->
-  <div id="preloader" aria-hidden="true">
-    <div class="preloader-inner">
-      <svg class="spinner" viewBox="0 0 50 50" role="img" aria-label="loading">
-        <circle cx="25" cy="25" r="20" fill="none" stroke-width="4"></circle>
-      </svg>
-      <div class="preloader-text">Indrayani Kalagourav Foundation</div>
-    </div>
-  </div>
+  <div id="preloader" aria-hidden="true"><div class="preloader-inner"><svg class="spinner" viewBox="0 0 50 50"><circle cx="25" cy="25" r="20" fill="none" stroke-width="4"></circle></svg></div></div>
 
   <div class="site" id="top" style="opacity:0">
-    <!-- HEADER -->
     <header class="header">
       <div class="header-inner">
         <div class="brand-left">
@@ -44,6 +35,7 @@
         </nav>
       </div>
 
+      <!-- leadership strip (with photos) under header -->
       <div class="leadership-row" role="region" aria-label="Leadership and trustees">
         <div class="leader">
           <img src="assets/images/founder_amit.jpg" alt="Amit Pandurang Kengar" class="leader-photo" loading="lazy">
@@ -70,13 +62,12 @@
       </div>
     </header>
 
-    <!-- MAIN -->
     <main class="main">
-      <!-- HERO (Unsplash curated images) -->
+      <!-- HERO -->
       <section class="hero" id="hero">
         <div class="hero-left">
           <h1 class="hero-head">Preserve culture. Educate the next generation.</h1>
-          <p class="hero-sub">We run scholarships, cultural workshops, and community programs that connect tradition with opportunity across the Indrayani region.</p>
+          <p class="hero-sub">Scholarships, cultural workshops and community action across the Indrayani region.</p>
           <div class="hero-actions">
             <a class="btn primary" href="#support">Donate</a>
             <a class="btn ghost" href="#volunteer-form">Volunteer</a>
@@ -84,29 +75,29 @@
 
           <div class="mission card">
             <div class="mission-title">Our mission</div>
-            <div class="mission-text muted">
-              To empower youth through education and to preserve local cultural heritage by creating sustainable programs that connect tradition with modern opportunities.
-            </div>
+            <div class="mission-text muted">To empower youth through education and to preserve local cultural heritage by creating sustainable programs that connect tradition with modern opportunity.</div>
           </div>
         </div>
 
         <div class="hero-right">
           <div class="hero-stage" id="heroStage">
-            <!-- curated Unsplash images (royalty-free) -->
-            <div class="hs-item visible" data-src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=1600&q=80&auto=format&fit=crop"></div>
-            <div class="hs-item" data-src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=1600&q=80&auto=format&fit=crop"></div>
-            <div class="hs-item" data-src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1600&q=80&auto=format&fit=crop"></div>
-            <svg class="hero-shape" viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#ff9a9e"/><stop offset="1" stop-color="#7ee8fa"/></linearGradient></defs><path d="M0,120 C40,80 120,40 200,80 L200,200 L0,200 Z" fill="url(#lg)"/></svg>
+            <!-- local hero images (use your downloaded files) -->
+            <div class="hs-item visible" data-img="assets/images/hero1.jpg"></div>
+            <div class="hs-item" data-img="assets/images/hero2.jpg"></div>
+            <div class="hs-item" data-img="assets/images/hero3.jpg"></div>
+
+            <!-- SVG decorative -->
+            <svg class="hero-shape" viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="lg2" x1="0" x2="1"><stop offset="0" stop-color="#ffd7e2"/><stop offset="1" stop-color="#c7f5ff"/></linearGradient></defs><path d="M0,120 C40,80 120,40 200,80 L200,200 L0,200 Z" fill="url(#lg2)"/></svg>
           </div>
         </div>
       </section>
 
-      <!-- ABOUT -->
+      <!-- ABOUT + PROGRAMS -->
       <section id="about" class="section">
         <div class="container grid-2">
           <div class="card">
             <h2 class="card-title">About us</h2>
-            <p class="muted">Founded to protect local arts and provide educational opportunities, Indrayani Kalagourav Foundation implements community programs that uplift children and celebrate regional heritage.</p>
+            <p class="muted">Indrayani Kalagourav Foundation preserves local arts and provides educational opportunities through scholarships, workshops and community initiatives.</p>
           </div>
 
           <div class="card">
@@ -120,31 +111,30 @@
         </div>
       </section>
 
-      <!-- PROGRAMS (Unsplash images curated) -->
       <section id="programs" class="section">
         <h3 class="section-heading">Programs</h3>
         <div class="grid">
           <article class="grid-card" data-appear>
-            <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?w=1200&q=80&auto=format&fit=crop" alt="Education program" loading="lazy">
+            <img src="assets/images/program1.jpg" alt="Education program" loading="lazy">
             <h4>Education Support</h4>
             <p class="muted">Scholarships and mentorship for rural students.</p>
           </article>
 
           <article class="grid-card" data-appear>
-            <img src="https://images.unsplash.com/photo-1524503033411-c9566986fc8f?w=1200&q=80&auto=format&fit=crop" alt="Cultural workshops" loading="lazy">
+            <img src="assets/images/program2.jpg" alt="Cultural workshops" loading="lazy">
             <h4>Cultural Workshops</h4>
             <p class="muted">Music, dance and craft workshops taught by local artists.</p>
           </article>
 
           <article class="grid-card" data-appear>
-            <img src="https://images.unsplash.com/photo-1532074205216-d0e1f1d55694?w=1200&q=80&auto=format&fit=crop" alt="Community development" loading="lazy">
+            <img src="assets/images/program3.jpg" alt="Community development" loading="lazy">
             <h4>Community Development</h4>
-            <p class="muted">Clean-ups, events and volunteer programs.</p>
+            <p class="muted">Local events, clean-ups and volunteer programs.</p>
           </article>
         </div>
       </section>
 
-      <!-- PEOPLE -->
+      <!-- PEOPLE (left here once, removed duplicate bottom section) -->
       <section id="people" class="section">
         <h3 class="section-heading">Leadership & Trustees</h3>
         <div class="people-row">
@@ -233,22 +223,13 @@
     // Set year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Smooth scroll for in-page links
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', function(e){
-        const target = document.querySelector(this.getAttribute('href'));
-        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); history.replaceState(null,null,this.getAttribute('href')); }
-      });
-    });
-
-    // Preloader & hero lazy background loader
+    // Preloader and hero background loader (local images)
     (function(){
       const pre = document.getElementById('preloader');
       const site = document.querySelector('.site');
-      // load hero background images progressively
       const items = document.querySelectorAll('.hs-item');
       items.forEach((el, idx)=>{
-        const src = el.dataset.src;
+        const src = el.dataset.img;
         const img = new Image();
         img.src = src;
         img.onload = ()=> {
@@ -256,18 +237,12 @@
           if(idx===0) el.classList.add('visible');
         };
       });
-
-      // wait for window load (or 900ms min) then hide preloader
-      const hide = () => {
-        pre.classList.add('done');
-        site.style.opacity = 1;
-      };
-      window.addEventListener('load', ()=> setTimeout(hide, 350));
-      // fallback timeout
+      const hide = () => { pre.classList.add('done'); site.style.opacity = 1; };
+      window.addEventListener('load', ()=> setTimeout(hide, 300));
       setTimeout(hide, 1500);
     })();
 
-    // Hero auto-rotate
+    // Hero rotate
     (function(){
       const heroItems = document.querySelectorAll('.hero-stage .hs-item');
       if(!heroItems.length) return;
@@ -278,15 +253,21 @@
       }, 5000);
     })();
 
-    // IntersectionObserver appear
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+
+    // appear animations
     (function(){
       const items = document.querySelectorAll('[data-appear]');
       const obs = new IntersectionObserver((entries)=>{
-        entries.forEach(en=>{
-          if(en.isIntersecting){ en.target.classList.add('visible'); obs.unobserve(en.target); }
-        });
-      }, {threshold:0.12});
-      items.forEach(it=>obs.observe(it));
+        entries.forEach(en => { if(en.isIntersecting){ en.target.classList.add('visible'); obs.unobserve(en.target); }});
+      }, {threshold: 0.12});
+      items.forEach(i => obs.observe(i));
     })();
   </script>
 </body>

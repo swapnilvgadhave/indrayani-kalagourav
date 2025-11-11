@@ -9,31 +9,25 @@
 </head>
 <body>
   <!-- PRELOADER -->
-  <div id="preloader" aria-hidden="true">
-    <div class="preloader-inner">
-      <svg viewBox="0 0 50 50" class="spinner"><circle cx="25" cy="25" r="20" fill="none" stroke-width="4"/></svg>
-    </div>
-  </div>
+  <div id="preloader" aria-hidden="true"><div class="preloader-inner"><svg viewBox="0 0 50 50" class="spinner"><circle cx="25" cy="25" r="20" fill="none" stroke-width="4"/></svg></div></div>
 
   <div id="site" class="site" style="opacity:0">
-    <!-- HEADER: plain with clear logo and multicolor title -->
+    <!-- HEADER: horizontal fit -->
     <header class="header-full plain-header">
       <div class="header-inner">
         <div class="brand-wrap">
-          <picture class="brand-pic">
-            <source srcset="assets/images/logo@2x.jpg 2x, assets/images/logo.jpg 1x" type="image/jpeg">
-            <img src="assets/images/logo.jpg" alt="Indrayani Kalagourav Foundation logo" class="brand-logo" width="180" height="180">
-          </picture>
-
+          <img src="assets/images/logo.jpg" alt="Indrayani Kalagourav Foundation logo" class="brand-logo" width="160" height="160">
           <div class="brand-text">
             <h1 class="brand-title multi">Indrayani <strong>Kalagourav</strong> Foundation</h1>
             <h2 class="brand-title marathi multi-sub">इंद्रायणी <strong>कलागौरव</strong> फाउंडेशन</h2>
             <p class="brand-sub">Art · Education · Humanity · कला · शिक्षण · मानवता</p>
           </div>
+          <!-- placeholder to keep header balanced on wide screens -->
+          <div class="brand-end" aria-hidden="true"></div>
         </div>
       </div>
 
-      <!-- NAV: boxed tabs (multicolor labels) -->
+      <!-- NAV: boxed tabs -->
       <nav class="main-nav" aria-label="Main navigation">
         <a href="#people" class="tab"><span class="multi">Leadership</span><br><small>नेतृत्व</small></a>
         <a href="#about" class="tab"><span class="multi">About</span><br><small>माहिती</small></a>
@@ -44,7 +38,7 @@
     </header>
 
     <main class="main">
-      <!-- Leadership centered -->
+      <!-- Leadership centered + underlined -->
       <section id="people" class="section leadership-section">
         <h2 class="section-heading centered multi">Leadership & Trustees · नेतृत्व व ट्रस्टी</h2>
         <div class="lead-grid">
@@ -68,7 +62,7 @@
         </div>
       </section>
 
-      <!-- Cards -->
+      <!-- About + Programs (underlined headings) -->
       <section id="top-cards" class="top-cards">
         <div class="cards-row">
           <div class="card" id="about">
@@ -82,8 +76,8 @@
           <div class="card" id="programs">
             <div class="card-header boxed multi">Programs · कार्यक्रम</div>
             <ul class="program-list card-text">
-              <li><strong>Education Support · शैक्षणिक सहाय्य:</strong> Scholarships, mentoring, study materials, coaching camps, book distribution, digital learning support.</li>
-              <li><strong>Cultural Workshops · सांस्कृतिक कार्यशाळा:</strong> Music, dance, craft classes, artist residencies and youth showcases.</li>
+              <li><strong>Education Support · शैक्षणिक सहाय्य:</strong> Scholarships, mentoring, study materials, coaching camps, book distribution, digital learning.</li>
+              <li><strong>Cultural Workshops · सांस्कृतिक कार्यशाळा:</strong> Music, dance, craft classes, artist residencies, youth showcases.</li>
               <li><strong>Community · समुदाय:</strong> Health camps, environmental drives, village skill training and volunteer programs.</li>
             </ul>
           </div>
@@ -112,9 +106,9 @@
         </div>
       </section>
 
-      <!-- Program cards -->
+      <!-- Programs grid -->
       <section id="programs-cards" class="section">
-        <h3 class="section-heading multi">Selected Programs · ठराविक कार्यक्रम</h3>
+        <h3 class="section-heading multi underlined">Selected Programs · ठराविक कार्यक्रम</h3>
         <div class="grid">
           <article class="grid-card">
             <img src="assets/images/program1.jpg" alt="Education program" loading="lazy">
@@ -137,7 +131,7 @@
       </section>
 
       <section id="support" class="section card">
-        <h3 class="card-header boxed multi">Support · समर्थन</h3>
+        <h3 class="card-header boxed multi underlined">Support · समर्थन</h3>
         <p class="card-text">Donate or partner. Use verified payment methods after board approval. · देणगी किंवा भागीदारी. मंडळ मंजुरीनंतर अधिकृत पेमेंट वापरा.</p>
       </section>
 
@@ -159,9 +153,8 @@
         </form>
       </section>
 
-      <!-- CONTACT -->
       <section id="contact" class="section card">
-        <h3 class="card-header boxed multi">Contact · संपर्क</h3>
+        <h3 class="card-header boxed multi underlined">Contact · संपर्क</h3>
         <p class="card-text">
           Office Phone: +91 76205 87725 · Email: info@indrayani.org<br>
           Address: Indrayani Taluka, Pune District (sample) · कार्यालय पत्ता: इंद्रायणी तालुका, पुणे जिल्हा (नमुना)
@@ -169,17 +162,16 @@
       </section>
     </main>
 
-    <!-- FOOTER with promo line (restored) -->
+    <!-- FOOTER with exact promo text requested -->
     <footer class="footer">
       <div>© <span id="year"></span> Indrayani Kalagourav Foundation · इंद्रायणी कलागौरव फाउंडेशन</div>
       <div class="muted">
-        Site developed & maintained by <strong>Avantika Software Systems</strong> · Director: <strong>Swapnil Gadhave</strong><br>
-        Contact: hello@avantika.com · +91 76205 87725
+        Website Developed &amp; Maintained by <strong>Avant Software Systems</strong> - Managing Director - <strong>Swapnil Gadhave</strong> - For Business Mail us @ <a href="mailto:hello@avantika.com">hello@avantika.com</a>
       </div>
     </footer>
   </div>
 
-  <!-- Scripts: preloader + hero slideshow + fallback -->
+  <!-- SCRIPTS: preload + slideshow + fallback -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -188,10 +180,7 @@
       const site = document.getElementById('site');
       const slides = document.querySelectorAll('.hero-slide');
       let loaded = 0;
-      if(slides.length === 0){
-        if(pre) pre.classList.add('done'); if(site) site.style.opacity = 1;
-        return;
-      }
+      if(slides.length === 0){ if(pre) pre.classList.add('done'); if(site) site.style.opacity = 1; return; }
       slides.forEach((el)=>{
         const src = el.dataset.img;
         const img = new Image();

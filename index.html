@@ -16,10 +16,8 @@
   </div>
 
   <div id="site" class="site" style="opacity:0">
-    <!-- HEADER -->
-    <header class="header-full">
-      <div class="header-gradient" aria-hidden="true"></div>
-
+    <!-- HEADER: no background graphic -->
+    <header class="header-full plain-header">
       <div class="header-inner">
         <div class="brand-wrap">
           <picture class="brand-pic">
@@ -28,14 +26,14 @@
           </picture>
 
           <div class="brand-text">
-            <h1 class="brand-title"><span class="grad-text">Indrayani <strong>Kalagourav</strong> Foundation</span></h1>
-            <h2 class="brand-title marathi"><span class="grad-text">इंद्रायणी <strong>कलागौरव</strong> फाउंडेशन</span></h2>
+            <h1 class="brand-title"><span>Indrayani <strong>Kalagourav</strong> Foundation</span></h1>
+            <h2 class="brand-title marathi">इंद्रायणी <strong>कलागौरव</strong> फाउंडेशन</h2>
             <div class="brand-sub"><span class="chip">Art · Education · Humanity</span> · <span class="chip">कला · शिक्षण · मानवता</span></div>
           </div>
         </div>
       </div>
 
-      <!-- NAV BELOW HEADER -->
+      <!-- NAV: boxed tabs -->
       <nav class="main-nav" aria-label="Main navigation">
         <a href="#people" class="tab">Leadership · नेतृत्व</a>
         <a href="#about" class="tab">About · माहिती</a>
@@ -84,9 +82,11 @@
           <div class="card graphic-card" id="programs">
             <div class="card-header boxed">Programs · कार्यक्रम</div>
             <ul class="program-list card-text">
-              <li><strong>Education Support · शैक्षणिक सहाय्य:</strong> Scholarships, mentoring, study materials and coaching camps. · शिष्यवृत्ती, मार्गदर्शन, अभ्यास साहित्य व शिबिरे.</li>
-              <li><strong>Cultural Workshops · सांस्कृतिक कार्यशाळा:</strong> Music, dance, craft, teacher residencies and youth showcases. · संगीत, नृत्य, हस्तकला, प्रशिक्षण व युवक प्रदर्शन.</li>
-              <li><strong>Community · समुदाय:</strong> Local events, health camps, environmental drives and volunteer programs. · स्थानिक कार्यक्रम, आरोग्य शिबिरे, पर्यावरण मोहिमा व स्वयंसेवा.</li>
+              <li><strong>Education Support · शैक्षणिक सहाय्य:</strong> Scholarships, mentoring, study materials, coaching camps, school supplies distribution, digital learning support. · शिष्यवृत्ती, मार्गदर्शन, अभ्यास साहित्य, शिबिरे, पुस्तके व डिजिटल शिक्षण.</li>
+
+              <li><strong>Cultural Workshops · सांस्कृतिक कार्यशाळा:</strong> Weekly classes in music, dance and crafts; artist residencies and youth showcases. · संगीत, नृत्य व हस्तकलेच्या साप्ताहिक कार्यशाळा; कलाकार-निवास व युवक प्रदर्शन.</li>
+
+              <li><strong>Community · समुदाय:</strong> Health camps, environmental drives, village skill training, awareness programs, volunteer mobilization. · आरोग्य शिबिरे, पर्यावरण मोहिमा, कौशल्य प्रशिक्षण व स्वयंसेवक अभियान.</li>
             </ul>
           </div>
         </div>
@@ -124,7 +124,7 @@
           <article class="grid-card">
             <img src="assets/images/program1.jpg" alt="Education program" loading="lazy">
             <h4 class="card-title">Education Support · शैक्षणिक सहाय्य</h4>
-            <p class="card-desc">Scholarships, local mentoring, exam coaching, book-banks and digital classes for rural students. · शिष्यवृत्ती, मार्गदर्शन, स्पर्धा तयारी, पुस्तक-कोश व डिजिटल वर्ग.</p>
+            <p class="card-desc">Scholarships, mentoring, exam coaching, book-banks and digital classes for rural students. · शिष्यवृत्ती, मार्गदर्शन, स्पर्धा तयारी, पुस्तक-कोश व डिजिटल वर्ग.</p>
           </article>
 
           <article class="grid-card">
@@ -141,6 +141,7 @@
         </div>
       </section>
 
+      <!-- Support and Volunteer sections kept -->
       <section id="support" class="section card">
         <h3 class="card-header boxed">Support · समर्थन</h3>
         <p class="card-text">Donate or partner. Use verified payment methods after board approval. · देणगी किंवा भागीदारी. मंडळ मंजुरीनंतर अधिकृत पेमेंट वापरा.</p>
@@ -164,23 +165,27 @@
         </form>
       </section>
 
+      <!-- CONTACT restored -->
       <section id="contact" class="section card">
         <h3 class="card-header boxed">Contact · संपर्क</h3>
-        <p class="card-text">Phone: +91 [phone] · Email: info@indrayani.org</p>
+        <p class="card-text">
+          Office Phone: +91 [phone] · Email: info@indrayani.org<br>
+          Address: Indrayani Taluka, Pune District (sample) · कार्यालय पत्ता: इंद्रायणी तालुका, पुणे जिल्हा (नमुना)
+        </p>
       </section>
     </main>
 
+    <!-- FOOTER with promo line -->
     <footer class="footer">
       <div>© <span id="year"></span> Indrayani Kalagourav Foundation · इंद्रायणी कलागौरव फाउंडेशन</div>
-      <div class="muted">Site by Avantika Software Systems · hello@avantika.com</div>
+      <div class="muted">Site developed & maintained by Avantika Software Systems, Director - Swapnil Gadhave · <a href="mailto:hello@avantika.com">hello@avantika.com</a></div>
     </footer>
   </div>
 
-  <!-- Scripts: image preloader + hero slideshow + safe preloader fallback -->
+  <!-- Scripts: preloader + hero slideshow + fallback -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Preload hero images, show site when ready, fallback timeout (2s)
     (function(){
       const pre = document.getElementById('preloader');
       const site = document.getElementById('site');
@@ -190,34 +195,16 @@
         if(pre) pre.classList.add('done'); if(site) site.style.opacity = 1;
         return;
       }
-      slides.forEach((el, idx)=>{
+      slides.forEach((el)=>{
         const src = el.dataset.img;
         const img = new Image();
         img.src = src;
-        img.onload = ()=> {
-          el.style.backgroundImage = `url('${src}')`;
-          loaded++;
-          if(loaded === slides.length){
-            if(pre) pre.classList.add('done');
-            if(site) site.style.opacity = 1;
-          }
-        };
-        img.onerror = ()=> {
-          loaded++;
-          if(loaded === slides.length){
-            if(pre) pre.classList.add('done');
-            if(site) site.style.opacity = 1;
-          }
-        };
+        img.onload = ()=> { el.style.backgroundImage = `url('${src}')`; loaded++; if(loaded===slides.length){ if(pre) pre.classList.add('done'); if(site) site.style.opacity = 1; } };
+        img.onerror = ()=> { loaded++; if(loaded===slides.length){ if(pre) pre.classList.add('done'); if(site) site.style.opacity = 1; } };
       });
-      // fallback: force-show after 2000ms
-      setTimeout(()=>{
-        if(pre) pre.classList.add('done');
-        if(site) site.style.opacity = 1;
-      }, 2000);
+      setTimeout(()=>{ if(pre) pre.classList.add('done'); if(site) site.style.opacity = 1; }, 2000);
     })();
 
-    // Hero rotate (fast 1800ms) + dots
     (function(){
       const container = document.getElementById('heroSlideshow');
       if(!container) return;
@@ -231,20 +218,11 @@
       });
       const dots = dotsWrap.querySelectorAll('.dot');
       let idx = 0;
-      function show(n){
-        slides.forEach((s,i)=> s.classList.toggle('visible', i===n));
-        dots.forEach((d,i)=> d.classList.toggle('active', i===n));
-        idx = n;
-      }
+      function show(n){ slides.forEach((s,i)=> s.classList.toggle('visible', i===n)); dots.forEach((d,i)=> d.classList.toggle('active', i===n)); idx=n; }
       let t = setInterval(()=> show((idx+1)%slides.length), 1800);
-      dotsWrap.addEventListener('click', e=>{
-        if(e.target.classList.contains('dot')){
-          clearInterval(t); show(Number(e.target.dataset.i)); t = setInterval(()=> show((idx+1)%slides.length), 1800);
-        }
-      });
+      dotsWrap.addEventListener('click', e=>{ if(e.target.classList.contains('dot')){ clearInterval(t); show(Number(e.target.dataset.i)); t=setInterval(()=> show((idx+1)%slides.length),1800); }});
     })();
 
-    // smooth internal links
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', function(e){
         const t = document.querySelector(this.getAttribute('href'));

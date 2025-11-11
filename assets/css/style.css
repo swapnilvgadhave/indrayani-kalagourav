@@ -190,6 +190,121 @@ body{
 .lead-grid {
   justify-content: center;
 }
+/* ===== Header & layout tuning ===== */
+.full-header-horiz .brand-wrap.full-width {
+  flex-wrap: nowrap;            /* keep elements on one line */
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* give logo a fixed wider area on left */
+.full-header-horiz .brand-left {
+  flex: 0 0 240px;              /* wider logo area */
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+}
+
+/* enlarge logo */
+.full-header-horiz .brand-logo {
+  width:220px;
+  height:220px;
+}
+
+/* make title take center and remain centered */
+.full-header-horiz .brand-center {
+  flex: 1 1 auto;
+  text-align: center;
+  padding: 0 18px;
+}
+
+/* ensure invisible spacer remains for balance */
+.full-header-horiz .brand-end { flex: 0 0 240px; }
+
+/* bump title size for wide screens */
+@media (min-width:1100px){
+  .full-header-horiz .brand-title { font-size:3.2rem; }
+  .full-header-horiz .brand-title.marathi { font-size:1.6rem; }
+}
+
+/* ===== Tabs: stretch boxes to fill row ===== */
+.main-nav {
+  width: calc(100% - 40px);
+  max-width: 1240px;
+  margin: 12px auto 0;
+  padding: 6px 20px;
+}
+
+/* make nav row distribute tabs and stretch each */
+.main-nav { display:flex; gap:14px; justify-content:space-between; }
+.main-nav .tab {
+  flex: 1 1 0;
+  min-width: 100px;
+  text-align: center;
+  padding: 12px 10px;
+  border-radius: 14px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+/* ensure tab text wraps nicely centered */
+.main-nav .tab span, .main-nav .tab small { display:block; }
+
+/* ===== Leadership photos spacing ===== */
+/* spread photos across the full width with larger gaps */
+.leadership-section .lead-grid {
+  justify-content: space-between;  /* spread items */
+  gap: 36px;                        /* bigger gap */
+  max-width: 1120px;
+  margin: 18px auto 0;
+}
+
+/* enlarge card images slightly and add breathing room */
+.lead-card { width: calc(33% - 24px); min-width:200px; }
+.lead-card img { width:100%; height:170px; object-fit:cover; border-radius:12px; }
+
+/* responsive - stack on small screens */
+@media (max-width:900px){
+  .lead-card{ width: 48%; }
+  .full-header-horiz .brand-logo{ width:160px; height:160px; }
+  .full-header-horiz .brand-title{ font-size:1.9rem; }
+}
+
+/* ===== Stronger font borders / shadows ===== */
+/* subtle dark stroke + shadow for headings and body text to improve visibility */
+:root{ --text-stroke-color: rgba(0,0,0,0.26); --text-shadow-strong: 0 4px 12px rgba(0,0,0,0.24); --text-shadow-subtle: 0 2px 6px rgba(0,0,0,0.18); }
+
+/* headings heavy */
+.brand-title, .hero-head, .section-heading, .card-title, .lead-name {
+  -webkit-text-stroke: 0.7px var(--text-stroke-color);
+  text-shadow: var(--text-shadow-strong);
+}
+
+/* tabs, card headers and important labels */
+.tab, .card-header, .boxed, .btn { 
+  -webkit-text-stroke: 0.45px var(--text-stroke-color);
+  text-shadow: var(--text-shadow-subtle);
+}
+
+/* body paragraphs lighter shadow for readability */
+p, .card-text, .card-desc, .lead-role, small {
+  text-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+
+/* ensure high contrast for white text over hero images */
+.white-text, .btn.primary, .tab.active { text-shadow: 0 6px 18px rgba(0,0,0,0.45); }
+
+/* ===== Optional: increase visual card depth (border/shadow) ===== */
+.lead-card, .card, .grid-card {
+  box-shadow: 0 28px 110px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.02);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+/* small polish: keep nav sticky on scroll (optional) */
+.header-full.plain-header { position: sticky; top: 0; z-index: 60; backdrop-filter: blur(4px); }
+
 
 /* --- Vivid background --- */
 body {

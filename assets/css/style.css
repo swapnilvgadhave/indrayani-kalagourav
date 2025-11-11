@@ -146,3 +146,52 @@ body{
   .main{padding:14px}
   .hero-slideshow{height:36vh}
 }
+/* --- Header tuning for full horizontal layout --- */
+.full-header-horiz .brand-wrap.full-width {
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.full-header-horiz .brand-left {
+  flex: 0 0 220px; /* wider logo area */
+}
+
+.full-header-horiz .brand-logo {
+  width: 200px;
+  height: 200px;
+}
+
+.full-header-horiz .brand-center {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.full-header-horiz .brand-title {
+  font-size: 3rem;
+  line-height: 1.1;
+}
+
+.full-header-horiz .brand-title.marathi {
+  font-size: 1.5rem;
+}
+
+.full-header-horiz .brand-sub {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+/* --- Leadership center alignment --- */
+.leadership-section {
+  text-align: center;
+}
+
+.lead-grid {
+  justify-content: center;
+}
+
+/* --- Vivid background --- */
+body {
+  background: linear-gradient(180deg, #fff0f6 0%, #ffeede 25%, #e5fff8 75%, #f0fffc 100%);
+}

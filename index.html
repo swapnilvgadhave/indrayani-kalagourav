@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Indrayani Kalagourav Foundation</title>
   <meta name="description" content="Indrayani Kalagourav Foundation — Art · Education · Humanity" />
+  <!-- Premium fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -13,14 +14,18 @@
   <div id="preloader" aria-hidden="true"><div class="preloader-inner"><svg class="spinner" viewBox="0 0 50 50"><circle cx="25" cy="25" r="20" fill="none" stroke-width="4"></circle></svg></div></div>
 
   <div class="site" id="top" style="opacity:0">
+
+    <!-- HEADER -->
     <header class="header">
       <div class="header-inner">
-        <div class="brand-left">
+        <div class="brand-left big-brand">
+          <!-- picture element for JPG/JPEG/logo@2x -->
           <picture>
             <source srcset="assets/images/logo@2x.jpg 2x, assets/images/logo.jpg 1x" type="image/jpeg">
-            <img src="assets/images/logo.jpg" alt="Indrayani Kalagourav Foundation logo" class="brand-logo" width="96" height="96" />
+            <img src="assets/images/logo.jpg" alt="Indrayani Kalagourav Foundation logo" class="brand-logo large" width="140" height="140" />
           </picture>
-          <div class="brand-text">
+
+          <div class="brand-text large-heading">
             <div class="brand-title">Indrayani Kalagourav Foundation</div>
             <div class="brand-sub">Art · Education · Humanity</div>
           </div>
@@ -35,7 +40,7 @@
         </nav>
       </div>
 
-      <!-- leadership strip (with photos) under header -->
+      <!-- Leadership row (single instance; photos included) -->
       <div class="leadership-row" role="region" aria-label="Leadership and trustees">
         <div class="leader">
           <img src="assets/images/founder_amit.jpg" alt="Amit Pandurang Kengar" class="leader-photo" loading="lazy">
@@ -62,32 +67,42 @@
       </div>
     </header>
 
+    <!-- MAIN -->
     <main class="main">
-      <!-- HERO -->
-      <section class="hero" id="hero">
+      <!-- BIG HERO -->
+      <section class="hero" id="hero" aria-label="hero section">
         <div class="hero-left">
           <h1 class="hero-head">Preserve culture. Educate the next generation.</h1>
-          <p class="hero-sub">Scholarships, cultural workshops and community action across the Indrayani region.</p>
+          <p class="hero-sub">Scholarships, cultural workshops and community action across the Indrayani region. We connect traditional knowledge with modern learning to build resilient communities.</p>
+
           <div class="hero-actions">
             <a class="btn primary" href="#support">Donate</a>
             <a class="btn ghost" href="#volunteer-form">Volunteer</a>
           </div>
 
-          <div class="mission card">
+          <div class="mission card glow">
             <div class="mission-title">Our mission</div>
-            <div class="mission-text muted">To empower youth through education and to preserve local cultural heritage by creating sustainable programs that connect tradition with modern opportunity.</div>
+            <div class="mission-text muted">
+              To empower youth through education and preserve regional arts by creating sustainable programs that blend tradition with contemporary skills.
+            </div>
           </div>
         </div>
 
         <div class="hero-right">
+          <!-- hero-stage uses local images: big, vivid -->
           <div class="hero-stage" id="heroStage">
-            <!-- local hero images (use your downloaded files) -->
             <div class="hs-item visible" data-img="assets/images/hero1.jpg"></div>
             <div class="hs-item" data-img="assets/images/hero2.jpg"></div>
             <div class="hs-item" data-img="assets/images/hero3.jpg"></div>
 
-            <!-- SVG decorative -->
-            <svg class="hero-shape" viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="lg2" x1="0" x2="1"><stop offset="0" stop-color="#ffd7e2"/><stop offset="1" stop-color="#c7f5ff"/></linearGradient></defs><path d="M0,120 C40,80 120,40 200,80 L200,200 L0,200 Z" fill="url(#lg2)"/></svg>
+            <!-- inline decorative SVG (glow shard) -->
+            <svg class="glow-shard" viewBox="0 0 200 200" aria-hidden="true">
+              <defs>
+                <linearGradient id="shardGrad" x1="0" x2="1"><stop offset="0" stop-color="#ffd7e2"/><stop offset="1" stop-color="#c7f5ff"/></linearGradient>
+                <filter id="blurMe"><feGaussianBlur stdDeviation="20" /></filter>
+              </defs>
+              <path d="M0,120 C40,80 120,40 200,80 L200,200 L0,200 Z" fill="url(#shardGrad)" opacity="0.9" filter="url(#blurMe)"/>
+            </svg>
           </div>
         </div>
       </section>
@@ -95,12 +110,12 @@
       <!-- ABOUT + PROGRAMS -->
       <section id="about" class="section">
         <div class="container grid-2">
-          <div class="card">
+          <div class="card glass glow">
             <h2 class="card-title">About us</h2>
-            <p class="muted">Indrayani Kalagourav Foundation preserves local arts and provides educational opportunities through scholarships, workshops and community initiatives.</p>
+            <p class="muted">Indrayani Kalagourav Foundation preserves local arts and provides educational opportunities through scholarships, workshops and community events. We partner with schools and local artists to build long-term programs.</p>
           </div>
 
-          <div class="card">
+          <div class="card glass">
             <h2 class="card-title">Quick facts</h2>
             <ul class="muted">
               <li>Founded: 2024</li>
@@ -134,7 +149,7 @@
         </div>
       </section>
 
-      <!-- PEOPLE (left here once, removed duplicate bottom section) -->
+      <!-- PEOPLE -->
       <section id="people" class="section">
         <h3 class="section-heading">Leadership & Trustees</h3>
         <div class="people-row">
@@ -164,7 +179,7 @@
       <!-- SUPPORT & VOLUNTEER -->
       <section id="support" class="section">
         <div class="container grid-2">
-          <div class="card">
+          <div class="card glass">
             <h2 class="card-title">How to support</h2>
             <p class="muted">Donate or partner. For public collections use verified payment channels and board approval.</p>
             <p class="muted"><strong>Example UPI:</strong> swapnilg@upi</p>
@@ -213,6 +228,7 @@
       </section>
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer">
       <div>© <span id="year"></span> Indrayani Kalagourav Foundation</div>
       <div class="muted">Site developed & maintained by <strong>Avantika Software Systems</strong>, Director - <strong>Swapnil Gadhave</strong> · <a href="mailto:hello@avantika.com">hello@avantika.com</a></div>
@@ -220,10 +236,9 @@
   </div>
 
   <script>
-    // Set year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Preloader and hero background loader (local images)
+    // Preloader + hero local background loader
     (function(){
       const pre = document.getElementById('preloader');
       const site = document.querySelector('.site');
@@ -242,7 +257,7 @@
       setTimeout(hide, 1500);
     })();
 
-    // Hero rotate
+    // Hero rotation
     (function(){
       const heroItems = document.querySelectorAll('.hero-stage .hs-item');
       if(!heroItems.length) return;
@@ -261,7 +276,7 @@
       });
     });
 
-    // appear animations
+    // Appear animations
     (function(){
       const items = document.querySelectorAll('[data-appear]');
       const obs = new IntersectionObserver((entries)=>{

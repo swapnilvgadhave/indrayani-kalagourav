@@ -183,3 +183,38 @@ body{
 
 /* safety: ensure header inner doesn't push content down unexpectedly */
 .header-inner, .brand-wrap.full-width { box-sizing: border-box; }
+
+/* ===== Quick fix: disable fixed header + remove reserved top padding ===== */
+
+/* 1) Make header part of normal flow (not fixed/sticky) */
+.header-full.plain-header.full-header-horiz {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  height: auto !important;
+  box-shadow: none !important;
+  z-index: 50 !important;
+}
+
+/* 2) Remove site padding that was compensating for a fixed header */
+.site {
+  padding-top: 0 !important;
+}
+
+/* 3) Tighten header inner spacing so header is compact */
+.header-inner {
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+}
+
+/* 4) Ensure no other element is forcing a big top gap */
+html, body { margin: 0 !important; padding: 0 !important; }
+
+/* 5) Safety: if a hero/empty banner inserted a top margin, collapse it */
+.hero-wide, .hero-placeholder, .top-banner { margin-top: 0 !important; padding-top: 0 !important; }
+
+/* 6) Keep brand area centered and logo close to title */
+.brand-wrap.full-width { justify-content: center !important; align-items: center !important; gap: 8px !important; }
+.brand-logo { width: 140px !important; margin-right: 8px !important; }
+

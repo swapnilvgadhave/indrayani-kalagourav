@@ -120,5 +120,20 @@
     };
     let t = setInterval(() => show((idx + 1) % slides.length), 2000);
   </script>
+  <!-- DEBUG: force-show site if preloader hangs -->
+<script>
+  (function(){
+    try{
+      const pre = document.getElementById('preloader');
+      const site = document.getElementById('site');
+      if(pre) pre.classList.add('done');
+      if(site) { site.style.opacity = 1; site.removeAttribute('aria-hidden'); }
+      // Also remove inline spinner if present
+      setTimeout(()=>{ if(pre && pre.parentNode) pre.parentNode.removeChild(pre); }, 800);
+      console.log('Preloader force-hidden (debug).');
+    }catch(e){ console.error('preloader-force error', e); }
+  })();
+</script>
+
 </body>
 </html>

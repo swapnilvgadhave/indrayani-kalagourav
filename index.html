@@ -12,29 +12,66 @@
   <div id="preloader" aria-hidden="true"><div class="preloader-inner"><svg class="spinner" viewBox="0 0 50 50"><circle cx="25" cy="25" r="20" fill="none" stroke-width="4"></circle></svg></div></div>
 
   <div class="site" id="site" style="opacity:0">
-    <!-- FULLHEIGHT HERO SPLIT: left = big logo + name, right = full-bleed slideshow -->
+
+    <!-- FULLHEIGHT SPLIT: left = brand + content, right = hero slideshow -->
     <header class="full-split">
-      <div class="split-left">
+      <div class="split-left enhanced-left">
         <picture class="brand-picture">
           <source srcset="assets/images/logo@2x.jpg 2x, assets/images/logo.jpg 1x" type="image/jpeg">
-          <img src="assets/images/logo.jpg" alt="Indrayani Kalagourav Foundation logo" class="brand-logo" width="320" height="320">
+          <img src="assets/images/logo.jpg" alt="Indrayani Kalagourav Foundation logo" class="brand-logo big" width="360" height="360">
         </picture>
 
-        <div class="brand-copy">
+        <div class="brand-copy large">
           <h1 class="brand-title">Indrayani<br><span class="highlight">Kalagourav</span><br>Foundation</h1>
           <p class="brand-sub">Art · Education · Humanity</p>
-          <div class="brand-cta">
+        </div>
+
+        <!-- ABOUT + PROGRAMS moved under the logo/name -->
+        <div class="left-info">
+          <section class="about-block card glass">
+            <h2 class="left-heading">About</h2>
+            <p class="muted">We preserve local arts and provide education through scholarships, cultural workshops and community events across the Indrayani region.</p>
+          </section>
+
+          <section class="programs-block card glass">
+            <h2 class="left-heading">Programs</h2>
+            <ul class="program-list muted">
+              <li><strong>Education Support:</strong> Scholarships and mentoring.</li>
+              <li><strong>Cultural Workshops:</strong> Music, dance, craft training.</li>
+              <li><strong>Community:</strong> Events, clean-ups, volunteering.</li>
+            </ul>
+          </section>
+
+          <!-- LEADERSHIP: frames and names moved under left column -->
+          <section class="leadership-block card glass">
+            <h2 class="left-heading">Leadership & Trustees</h2>
+            <div class="lead-frames">
+              <div class="lead-frame">
+                <img src="assets/images/founder_amit.jpg" alt="Amit Pandurang Kengar" class="lead-frame-photo" loading="lazy">
+                <div class="lead-frame-name">Amit Pandurang Kengar</div>
+                <div class="lead-frame-role muted">Founder</div>
+              </div>
+
+              <div class="lead-frame">
+                <img src="assets/images/founder_trupti.jpg" alt="Trupti Kengar" class="lead-frame-photo" loading="lazy">
+                <div class="lead-frame-name">Trupti Kengar</div>
+                <div class="lead-frame-role muted">Chairman</div>
+              </div>
+
+              <div class="lead-frame">
+                <img src="assets/images/founder_monali.jpg" alt="Monali Kale" class="lead-frame-photo" loading="lazy">
+                <div class="lead-frame-name">Monali Kale</div>
+                <div class="lead-frame-role muted">Executive Director</div>
+              </div>
+            </div>
+          </section>
+
+          <div class="left-ctas">
             <a class="btn primary" href="#support">Support</a>
             <a class="btn ghost" href="#volunteer-form">Volunteer</a>
           </div>
         </div>
 
-        <!-- single leadership strip under name (kept minimal here) -->
-        <div class="lead-strip">
-          <div class="lead-item"><img src="assets/images/founder_amit.jpg" alt="Amit Pandurang Kengar" class="lead-photo"><div class="lead-name">Amit Pandurang Kengar</div><div class="lead-role">Founder</div></div>
-          <div class="lead-item"><img src="assets/images/founder_trupti.jpg" alt="Trupti Kengar" class="lead-photo"><div class="lead-name">Trupti Kengar</div><div class="lead-role">Chairman</div></div>
-          <div class="lead-item"><img src="assets/images/founder_monali.jpg" alt="Monali Kale" class="lead-photo"><div class="lead-name">Monali Kale</div><div class="lead-role">Exec. Director</div></div>
-        </div>
       </div>
 
       <div class="split-right">
@@ -42,8 +79,14 @@
           <div class="slide visible" data-img="assets/images/hero1.jpg"></div>
           <div class="slide" data-img="assets/images/hero2.jpg"></div>
           <div class="slide" data-img="assets/images/hero3.jpg"></div>
+
           <div class="slide-overlay"></div>
           <div class="slide-dots" id="dots"></div>
+
+          <!-- Right-side minimal text overlay for visual balance -->
+          <div class="right-overlay">
+            <h2 class="right-phrase">Preserve culture. Educate the next generation.</h2>
+          </div>
         </div>
       </div>
     </header>
@@ -57,38 +100,11 @@
       <a href="#contact">Contact</a>
     </nav>
 
-    <!-- MAIN CONTENT (starts after full-height hero) -->
+    <!-- MAIN (content continues after hero) -->
     <main class="main">
-      <section id="about" class="section card">
-        <h2>About</h2>
-        <p class="muted">Indrayani Kalagourav Foundation preserves local arts and provides educational opportunities through scholarships, cultural workshops and community events.</p>
-      </section>
-
-      <section id="programs" class="section">
-        <h2>Programs</h2>
-        <div class="grid">
-          <article class="card grid-card" data-appear>
-            <img src="assets/images/program1.jpg" alt="Program 1" loading="lazy">
-            <h3>Education Support</h3>
-            <p class="muted">Scholarships and mentoring for rural students.</p>
-          </article>
-
-          <article class="card grid-card" data-appear>
-            <img src="assets/images/program2.jpg" alt="Program 2" loading="lazy">
-            <h3>Cultural Workshops</h3>
-            <p class="muted">Music, dance and craft training.</p>
-          </article>
-
-          <article class="card grid-card" data-appear>
-            <img src="assets/images/program3.jpg" alt="Program 3" loading="lazy">
-            <h3>Community Development</h3>
-            <p class="muted">Events, clean-ups and volunteer programs.</p>
-          </article>
-        </div>
-      </section>
-
+      <!-- keep People section but condensed (no duplicate) -->
       <section id="people" class="section">
-        <h2>Leadership & Trustees</h2>
+        <h2 class="section-heading">Leadership & Trustees</h2>
         <div class="people-row">
           <div class="person-card">
             <img src="assets/images/founder_amit.jpg" alt="Amit Pandurang Kengar" loading="lazy">
@@ -148,7 +164,7 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Preloader + load hero slides (local images)
+    // Preloader + load slideshow (local images)
     (function(){
       const pre = document.getElementById('preloader');
       const site = document.getElementById('site');
@@ -162,30 +178,31 @@
           if(idx===0) el.classList.add('visible');
         };
       });
+
       // build dots
       const dots = document.getElementById('dots');
-      slides.forEach((s,i)=>{
-        const d = document.createElement('button');
-        d.className = 'dot' + (i===0 ? ' active' : '');
-        d.dataset.i = i;
-        dots.appendChild(d);
+      slides.forEach((_,i)=>{
+        const b = document.createElement('button');
+        b.className = 'dot' + (i===0 ? ' active' : '');
+        b.dataset.i = i;
+        dots.appendChild(b);
       });
-      // hide preloader
+
       const hide = ()=>{ pre.classList.add('done'); site.style.opacity = 1; };
       window.addEventListener('load', ()=> setTimeout(hide, 300));
       setTimeout(hide, 1500);
     })();
 
-    // Hero rotate + dot click
+    // slideshow rotate + dots
     (function(){
       const slides = document.querySelectorAll('.slideshow .slide');
       const dots = document.querySelectorAll('.dot');
       if(!slides.length) return;
-      let idx=0;
+      let idx = 0;
       function show(n){
         slides.forEach((s,i)=> s.classList.toggle('visible', i===n));
         dots.forEach((d,i)=> d.classList.toggle('active', i===n));
-        idx=n;
+        idx = n;
       }
       let t = setInterval(()=> show((idx+1)%slides.length), 4800);
       document.getElementById('dots').addEventListener('click', e=>{

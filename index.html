@@ -12,53 +12,34 @@
   <div id="preloader" aria-hidden="true"><div class="preloader-inner"><svg class="spinner" viewBox="0 0 50 50"><circle cx="25" cy="25" r="20" fill="none" stroke-width="4"></circle></svg></div></div>
 
   <div id="site" class="site" style="opacity:0">
-
-    <!-- FULL-WIDTH HEADER: logo + name centered -->
+    <!-- A - FULL-WIDTH HEADER: logo + name centered, no promo -->
     <header class="header-full">
       <div class="header-inner">
         <div class="brand-wrap">
           <picture class="brand-pic">
             <source srcset="assets/images/logo@2x.jpg 2x, assets/images/logo.jpg 1x" type="image/jpeg">
-            <img src="assets/images/logo.jpg" alt="Indrayani Kalagourav Foundation logo" class="brand-logo" width="160" height="160">
+            <img src="assets/images/logo.jpg" alt="Indrayani Kalagourav Foundation logo" class="brand-logo" width="200" height="200">
           </picture>
 
           <div class="brand-text">
             <h1 class="brand-title">Indrayani <span class="accent">Kalagourav</span> Foundation</h1>
             <div class="brand-sub">Art · Education · Humanity</div>
           </div>
-      
+        </div>
+      </div>
 
-      <!-- NAV BELOW HEADER -->
+      <!-- B - NAV BELOW HEADER -->
       <nav class="main-nav" aria-label="Main navigation">
+        <a href="#people">Leadership</a>
         <a href="#about">About</a>
         <a href="#programs">Programs</a>
-        <a href="#people">Leadership</a>
         <a href="#support">Support</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
 
-    <!-- CONTENT: About & Programs (cards), Leadership between cards and hero -->
     <main class="main">
-      <section id="top-cards" class="top-cards">
-        <div class="cards-row">
-          <div class="card graphic-card" id="about">
-            <h2>About</h2>
-            <p>Indrayani Kalagourav Foundation preserves local arts and provides educational opportunities through scholarships, cultural workshops and community events.</p>
-          </div>
-
-          <div class="card graphic-card" id="programs">
-            <h2>Programs</h2>
-            <ul class="program-list">
-              <li><strong>Education Support</strong> — Scholarships & mentoring</li>
-              <li><strong>Cultural Workshops</strong> — Music, dance, craft</li>
-              <li><strong>Community</strong> — Events & volunteering</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- Leadership moved here (between cards and hero) -->
+      <!-- C - LEADERSHIP & TRUSTEES (directly under tabs) -->
       <section id="people" class="section leadership-section">
         <h2 class="section-heading">Leadership & Trustees</h2>
         <div class="lead-grid">
@@ -82,7 +63,26 @@
         </div>
       </section>
 
-      <!-- HERO (wide horizontal) directly under leadership -->
+      <!-- D - CARDS (About / Programs) with bright graphics and dark readable fonts -->
+      <section id="top-cards" class="top-cards">
+        <div class="cards-row">
+          <div class="card graphic-card" id="about">
+            <h2>About</h2>
+            <p class="card-text">Indrayani Kalagourav Foundation preserves local arts and provides educational opportunities through scholarships, cultural workshops and community events across the Indrayani region.</p>
+          </div>
+
+          <div class="card graphic-card" id="programs">
+            <h2>Programs</h2>
+            <ul class="program-list card-text">
+              <li><strong>Education Support</strong> — Scholarships & mentoring</li>
+              <li><strong>Cultural Workshops</strong> — Music, dance & craft</li>
+              <li><strong>Community</strong> — Events, clean-ups & volunteering</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- E - HERO WIDE (after cards). Medium-fast rotation (3500ms) -->
       <section class="hero-wide" id="hero">
         <div class="hero-slideshow" id="heroSlideshow" aria-hidden="false">
           <div class="hero-slide visible" data-img="assets/images/hero1.jpg" role="img" aria-label="hero image 1"></div>
@@ -104,33 +104,33 @@
         </div>
       </section>
 
-      <!-- Program cards repeated below hero (optional) -->
+      <!-- rest unchanged -->
       <section id="programs-cards" class="section">
         <h3 class="section-heading">Selected Programs</h3>
         <div class="grid">
           <article class="grid-card">
             <img src="assets/images/program1.jpg" alt="Education program" loading="lazy">
             <h4>Education Support</h4>
-            <p>Scholarships and mentoring for rural students.</p>
+            <p class="muted">Scholarships and mentoring for rural students.</p>
           </article>
 
           <article class="grid-card">
             <img src="assets/images/program2.jpg" alt="Cultural workshops" loading="lazy">
             <h4>Cultural Workshops</h4>
-            <p>Music, dance and craft training.</p>
+            <p class="muted">Music, dance and craft training.</p>
           </article>
 
           <article class="grid-card">
             <img src="assets/images/program3.jpg" alt="Community development" loading="lazy">
             <h4>Community Development</h4>
-            <p>Events, clean-ups and volunteer programs.</p>
+            <p class="muted">Events, clean-ups and volunteer programs.</p>
           </article>
         </div>
       </section>
 
       <section id="support" class="section card">
         <h3>Support</h3>
-        <p>Donate or partner. Use verified payment methods after board approval.</p>
+        <p class="muted">Donate or partner. Use verified payment methods after board approval.</p>
       </section>
 
       <section id="volunteer-form" class="section card">
@@ -153,7 +153,7 @@
 
       <section id="contact" class="section card">
         <h3>Contact</h3>
-        <p>Phone: +91 [phone] · Email: info@indrayani.org</p>
+        <p class="muted">Phone: +91 [phone] · Email: info@indrayani.org</p>
       </section>
     </main>
 
@@ -193,10 +193,10 @@
 
       const hide = ()=>{ pre.classList.add('done'); site.style.opacity = 1; };
       window.addEventListener('load', ()=> setTimeout(hide, 300));
-      setTimeout(hide, 1500);
+      setTimeout(hide, 1200);
     })();
 
-    // hero rotate + dot clicks (medium-fast: 3.5s)
+    // hero rotate + dot clicks (medium-fast: 3500ms)
     (function(){
       const slides = document.querySelectorAll('.hero-slideshow .hero-slide');
       const dots = document.querySelectorAll('.dot');
@@ -207,7 +207,7 @@
         dots.forEach((d,i)=> d.classList.toggle('active', i===n));
         idx = n;
       }
-      let t = setInterval(()=> show((idx+1)%slides.length), 3500); // 3500ms -> medium-fast
+      let t = setInterval(()=> show((idx+1)%slides.length), 3500);
       document.getElementById('heroDots').addEventListener('click', e=>{
         if(e.target.classList.contains('dot')){
           clearInterval(t); show(Number(e.target.dataset.i)); t = setInterval(()=> show((idx+1)%slides.length), 3500);

@@ -1,69 +1,88 @@
 :root{
   --accent:#0a66c2;
-  --muted:#444;
+  --accent-2:#ff6b6b;
+  --muted:#4a4a4a;
   --card:#ffffff;
-  --radius:12px;
-  --maxw:1100px;
+  --glass:rgba(255,255,255,0.9);
+  --radius:14px;
+  --maxw:1200px;
 }
 
-/* container */
-*{box-sizing:border-box}
-body{margin:0;background:linear-gradient(120deg,#ff9a9e,#fecfef,#f6f7d7);font-family:Rubik,Arial,Helvetica,sans-serif;color:#222}
-.wrap{max-width:var(--maxw);margin:28px auto;padding:22px;background:rgba(255,255,255,0.96);border-radius:16px;box-shadow:0 12px 40px rgba(12,12,12,0.08)}
+/* Reset & base */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:Poppins,Arial,Helvetica,sans-serif;background:linear-gradient(120deg,#ff9a9e,#ffd180,#e0f7fa);-webkit-font-smoothing:antialiased;color:#111}
+.site{max-width:var(--maxw);margin:28px auto;padding:20px}
 
-/* header */
-.site-header{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.brand{display:flex;align-items:center;gap:12px}
-.logo-blob{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,#ff6b6b,#ffd166);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:18px}
-.site-title{font-size:1.05rem;font-weight:700}
-.site-tag{color:var(--muted);font-size:0.92rem}
-.main-nav a{margin-left:12px;text-decoration:none;color:var(--muted);font-weight:600}
+/* Header */
+.header{border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,0.92),rgba(255,255,255,0.86));padding:16px 18px;box-shadow:0 10px 30px rgba(12,12,12,0.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand-logo{width:72px;height:72px;object-fit:contain;border-radius:10px}
+.brand-title{font-family:"Playfair Display",serif;font-size:1.15rem;font-weight:700}
+.brand-sub{color:var(--muted);font-size:0.95rem}
 
-/* hero */
-.hero{margin-top:18px;border-radius:12px;overflow:hidden}
-.slides{position:relative;height:360px;border-radius:10px;overflow:hidden}
-.slide{position:absolute;inset:0;opacity:0;transition:opacity 900ms cubic-bezier(.2,.9,.3,1);background-position:center;background-size:cover;display:flex;align-items:center}
-.slide.active{opacity:1}
-.overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.28),rgba(0,0,0,0.18))}
-.hero-content{position:relative;color:#fff;padding:28px;max-width:640px}
-.hero-title{font-family:Merriweather,serif;font-weight:700;font-size:2rem;margin:0 0 8px}
-.hero-sub{color:rgba(255,255,255,0.95)}
+/* Nav */
+.nav a{margin-left:14px;text-decoration:none;color:var(--muted);font-weight:600}
 
-/* slide controls */
-.slide-controls{position:absolute;right:14px;top:14px;display:flex;gap:8px;z-index:4}
-.dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.55);cursor:pointer}
-.dot.active{background:#fff}
+/* leadership strip */
+.leadership-strip{display:flex;gap:12px;align-items:center;margin-top:12px;padding:10px;border-radius:10px;background:linear-gradient(90deg,rgba(255,255,255,0.6),rgba(250,250,250,0.5));border:1px solid rgba(0,0,0,0.04);overflow:auto}
+.lead-col{min-width:160px;padding:6px 8px;font-size:0.95rem}
+.lead-col strong{display:block;color:#111}
 
-/* sections */
-.section{margin-top:18px}
-.section-title{font-size:1.15rem;margin:0 0 8px;font-weight:700;background:linear-gradient(90deg,#ff7a7a,#ffd07a);-webkit-background-clip:text;background-clip:text;color:transparent}
+/* Main & Hero */
+.main{margin-top:18px}
+.hero{display:flex;gap:20px;align-items:stretch}
+.hero-left{flex:1;display:flex;flex-direction:column;justify-content:center;gap:12px;padding:18px}
+.hero-right{width:520px;max-width:48%;min-width:320px}
+.hero-title{font-family:"Playfair Display",serif;font-size:2.4rem;color:#0b2540;text-shadow:0 2px 0 rgba(255,255,255,0.6)}
+.hero-lead{color:var(--muted);max-width:54ch}
+.hero-cta{margin-top:12px;display:flex;gap:10px}
+.btn{padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;display:inline-block}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;border:0}
+.btn.ghost{background:transparent;border:2px solid rgba(0,0,0,0.06);color:#222}
 
-/* grid & cards */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:12px}
-.card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 10px 30px rgba(12,12,12,0.06);transition:transform .25s ease,box-shadow .25s ease;opacity:0;transform:translateY(8px)}
-.card.visible{opacity:1;transform:none}
-.card img{width:100%;border-radius:8px;display:block}
-.card.small{padding:12px}
+/* hero slideshow right */
+.hero-slideshow{position:relative;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(10,10,10,0.08);height:100%}
+.hero-slideshow .hs-item{position:absolute;inset:0;background-position:center;background-size:cover;opacity:0;transform:scale(1.03);transition:opacity .8s ease,transform 6s linear}
+.hero-slideshow .hs-item.visible{opacity:1;transform:scale(1)}
+.hero-slideshow::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.08),transparent);pointer-events:none}
 
-/* founder gallery */
-.founder-gallery{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
-.founder-photo{width:120px;height:120px;border-radius:10px;object-fit:cover;box-shadow:0 8px 20px rgba(0,0,0,0.06)}
+/* content sections */
+.section{margin-top:24px}
+.card-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 12px 40px rgba(12,12,12,0.06)}
+.card-title{font-weight:700;margin-bottom:8px}
+.section-heading{font-size:1.2rem;font-weight:700;margin-bottom:8px;color:#0b2540}
 
-/* buttons and forms */
-.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
-.vol-form{display:grid;gap:8px;max-width:560px}
-.vol-form input,.vol-form select,.vol-form textarea{padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);font-size:0.95rem}
+/* grid cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.grid-card{background:linear-gradient(180deg,#fff,#fff);border-radius:12px;overflow:hidden;box-shadow:0 12px 30px rgba(10,10,10,0.06);transition:transform .28s ease}
+.grid-card img{width:100%;height:160px;object-fit:cover;display:block}
+.grid-card h3{padding:12px 14px 0 14px;margin:0}
+.grid-card p{padding:0 14px 14px 14px;color:var(--muted)}
 
-/* contact */
-.contact-card{display:inline-block}
+/* people */
+.people-cards{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px}
+.person{width:180px;background:var(--card);padding:12px;border-radius:12px;text-align:center;box-shadow:0 10px 30px rgba(12,12,12,0.06)}
+.person img{width:100%;height:140px;object-fit:cover;border-radius:10px;margin-bottom:8px}
+.person-name{font-weight:700}
+.person-role{color:var(--muted);font-size:0.9rem}
+
+/* volunteer form */
+.vol-form{display:grid;gap:8px;max-width:600px;margin-top:8px}
+.vol-form input, .vol-form select, .vol-form textarea{padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)}
+.vol-form button{padding:10px 12px;border-radius:8px;background:linear-gradient(90deg,var(--accent),#ff7a7a);color:#fff;border:0;cursor:pointer}
 
 /* footer */
-.site-footer{margin-top:26px;color:var(--muted);font-size:0.9rem;padding:12px 0;border-top:1px solid rgba(0,0,0,0.06);display:flex;justify-content:space-between;align-items:center}
+.footer{margin-top:28px;padding:12px 0;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(0,0,0,0.06);color:var(--muted)}
 
-/* responsive */
+/* small helpers */
+.muted{color:var(--muted)}
 @media (max-width:900px){
-  .slides{height:220px}
-  .hero-title{font-size:1.3rem}
-  .main-nav{display:none}
-  .wrap{padding:16px}
+  .hero{flex-direction:column}
+  .hero-right{width:100%;max-width:100%}
+  .header-inner{flex-direction:column;align-items:flex-start;gap:8px}
+  .leadership-strip{overflow:auto}
+  .brand-title{font-size:1rem}
 }

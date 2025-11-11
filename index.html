@@ -4,25 +4,97 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Indrayani Kalagourav Foundation · इंद्रायणी कलागौरव फाउंडेशन</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
+
+  <!-- Primary external CSS (keeps structure, components) -->
   <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Inline overrides to ensure header, centered leadership, and vivid palette are applied immediately -->
+  <style>
+    :root{
+      --accent-1:#ff0066;
+      --accent-2:#ff9800;
+      --accent-3:#00e5ff;
+      --accent-4:#7cffb2;
+      --bg-top: linear-gradient(180deg, #fff0f7 0%, #fff8ea 30%, #e6fff8 100%);
+      --text-dark:#041021;
+    }
+
+    /* vivid full-page background */
+    html,body{height:100%;margin:0}
+    body{
+      background: var(--bg-top);
+      color:var(--text-dark);
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* header: full-width horizontal, centered title, spacer right */
+    .header-full.plain-header.full-header-horiz{
+      background:transparent;
+      padding:10px 0 6px;
+    }
+    .header-inner{max-width:1360px;margin:0 auto;padding:6px 20px;box-sizing:border-box}
+    .brand-wrap.full-width{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      width:100%;
+    }
+    .brand-left{flex:0 0 180px; display:flex; align-items:center; justify-content:flex-start}
+    .brand-center{flex:1 1 auto; text-align:center}
+    .brand-end{flex:0 0 180px; opacity:0} /* invisible spacer to balance */
+
+    .brand-logo{width:160px;height:160px; object-fit:contain; border-radius:8px; box-shadow:0 28px 100px rgba(0,0,0,0.06)}
+    .brand-title{font-family:'Playfair Display', serif; font-size:2.6rem; line-height:1; margin:0; font-weight:900; color:transparent;
+      background: linear-gradient(90deg,var(--accent-1),var(--accent-2),var(--accent-3)); -webkit-background-clip:text; background-clip:text;}
+    .brand-title.marathi{display:block; font-size:1.2rem; margin-top:6px; font-weight:800;
+      background: linear-gradient(90deg,var(--accent-2),var(--accent-3),var(--accent-4)); -webkit-background-clip:text; color:transparent}
+    .brand-sub{margin-top:8px; font-weight:700; color:rgba(4,16,33,0.65)}
+
+    /* center leadership area */
+    .leadership-section{ text-align:center; margin:28px 0 10px; }
+    .lead-grid{ display:flex; gap:20px; flex-wrap:wrap; justify-content:center; align-items:flex-start; margin-top:14px; }
+
+    /* stronger colorful tabs when external styles load */
+    .main-nav .tab{ min-width:120px; border-radius:14px; padding:10px 14px; font-weight:800; box-shadow:0 12px 36px rgba(0,0,0,0.06); }
+
+    /* underline treatment for big headings — visible immediately */
+    .section-heading{ display:inline-block; font-weight:900; position:relative; }
+    .section-heading::after{ content:""; display:block; height:6px; border-radius:6px; margin-top:10px;
+      background: linear-gradient(90deg,var(--accent-1),var(--accent-2),var(--accent-3)); width:100%; max-width:320px; margin-left:auto; margin-right:auto; }
+
+    /* responsive tweaks */
+    @media (max-width:980px){
+      .brand-logo{width:120px;height:120px}
+      .brand-title{font-size:1.8rem}
+      .brand-title.marathi{font-size:1rem}
+      .brand-end{display:none}
+    }
+  </style>
 </head>
 <body>
   <!-- PRELOADER -->
-  <div id="preloader" aria-hidden="true"><div class="preloader-inner"><svg viewBox="0 0 50 50" class="spinner"><circle cx="25" cy="25" r="20" fill="none" stroke-width="4"/></svg></div></div>
+  <div id="preloader" aria-hidden="true">
+    <div class="preloader-inner">
+      <svg viewBox="0 0 50 50" class="spinner"><circle cx="25" cy="25" r="20" fill="none" stroke-width="4"/></svg>
+    </div>
+  </div>
 
   <div id="site" class="site" style="opacity:0">
-    <!-- HEADER: horizontal fit -->
-    <header class="header-full plain-header">
+    <!-- HEADER: full-width horizontal header with centered title and invisible spacer -->
+    <header class="header-full plain-header full-header-horiz">
       <div class="header-inner">
-        <div class="brand-wrap">
-          <img src="assets/images/logo.jpg" alt="Indrayani Kalagourav Foundation logo" class="brand-logo" width="160" height="160">
-          <div class="brand-text">
-            <h1 class="brand-title multi">Indrayani <strong>Kalagourav</strong> Foundation</h1>
-            <h2 class="brand-title marathi multi-sub">इंद्रायणी <strong>कलागौरव</strong> फाउंडेशन</h2>
+        <div class="brand-wrap full-width">
+          <div class="brand-left">
+            <img src="assets/images/logo.jpg" alt="Indrayani Kalagourav Foundation logo" class="brand-logo" width="160" height="160">
+          </div>
+
+          <div class="brand-text brand-center">
+            <h1 class="brand-title">Indrayani <strong>Kalagourav</strong> Foundation</h1>
+            <h2 class="brand-title marathi">इंद्रायणी <strong>कलागौरव</strong> फाउंडेशन</h2>
             <p class="brand-sub">Art · Education · Humanity · कला · शिक्षण · मानवता</p>
           </div>
-          <!-- placeholder to keep header balanced on wide screens -->
+
           <div class="brand-end" aria-hidden="true"></div>
         </div>
       </div>
@@ -38,35 +110,35 @@
     </header>
 
     <main class="main">
-      <!-- Leadership centered + underlined -->
+      <!-- Leadership centered -->
       <section id="people" class="section leadership-section">
-        <h2 class="section-heading centered multi">Leadership & Trustees · नेतृत्व व ट्रस्टी</h2>
+        <h2 class="section-heading">Leadership & Trustees · नेतृत्व व ट्रस्टी</h2>
         <div class="lead-grid">
           <div class="lead-card">
-            <img src="assets/images/founder_amit.jpg" alt="Amit Pandurang Kengar" loading="lazy">
-            <div class="lead-name">Amit Pandurang Kengar</div>
-            <div class="lead-role">Founder · संस्थापक</div>
+            <img src="assets/images/founder_amit.jpg" alt="Amit Pandurang Kengar" loading="lazy" style="width:200px;height:150px;object-fit:cover;border-radius:10px;">
+            <div class="lead-name" style="font-weight:800;margin-top:8px;">Amit Pandurang Kengar</div>
+            <div class="lead-role" style="color:rgba(4,16,33,0.5)">Founder · संस्थापक</div>
           </div>
 
           <div class="lead-card">
-            <img src="assets/images/founder_trupti.jpg" alt="Trupti Kengar" loading="lazy">
-            <div class="lead-name">Trupti Kengar</div>
-            <div class="lead-role">Chairman · अध्यक्षा</div>
+            <img src="assets/images/founder_trupti.jpg" alt="Trupti Kengar" loading="lazy" style="width:200px;height:150px;object-fit:cover;border-radius:10px;">
+            <div class="lead-name" style="font-weight:800;margin-top:8px;">Trupti Kengar</div>
+            <div class="lead-role" style="color:rgba(4,16,33,0.5)">Chairman · अध्यक्षा</div>
           </div>
 
           <div class="lead-card">
-            <img src="assets/images/founder_monali.jpg" alt="Monali Kale" loading="lazy">
-            <div class="lead-name">Monali Kale</div>
-            <div class="lead-role">Executive Director · कार्यकारी संचालक</div>
+            <img src="assets/images/founder_monali.jpg" alt="Monali Kale" loading="lazy" style="width:200px;height:150px;object-fit:cover;border-radius:10px;">
+            <div class="lead-name" style="font-weight:800;margin-top:8px;">Monali Kale</div>
+            <div class="lead-role" style="color:rgba(4,16,33,0.5)">Executive Director · कार्यकारी संचालक</div>
           </div>
         </div>
       </section>
 
-      <!-- About + Programs (underlined headings) -->
+      <!-- About and Programs (kept existing structure; external CSS will style cards) -->
       <section id="top-cards" class="top-cards">
         <div class="cards-row">
           <div class="card" id="about">
-            <div class="card-header boxed multi">About · माहिती</div>
+            <div class="card-header boxed">About · माहिती</div>
             <p class="card-text">
               <strong>Indrayani Kalagourav Foundation</strong> preserves local arts and provides education through scholarships, workshops and community programs.
               <br><em>इंद्रायणी कलागौरव फाउंडेशन स्थानिक कला जतन करते व शिष्यवृत्ती, कार्यशाळा व समाजोपयोगी कार्यक्रमाद्वारे शिक्षण देते.</em>
@@ -74,19 +146,19 @@
           </div>
 
           <div class="card" id="programs">
-            <div class="card-header boxed multi">Programs · कार्यक्रम</div>
+            <div class="card-header boxed">Programs · कार्यक्रम</div>
             <ul class="program-list card-text">
-              <li><strong>Education Support · शैक्षणिक सहाय्य:</strong> Scholarships, mentoring, study materials, coaching camps, book distribution, digital learning.</li>
-              <li><strong>Cultural Workshops · सांस्कृतिक कार्यशाळा:</strong> Music, dance, craft classes, artist residencies, youth showcases.</li>
+              <li><strong>Education Support · शैक्षणिक सहाय्य:</strong> Scholarships, mentoring, study materials, coaching camps, book distribution, digital learning support.</li>
+              <li><strong>Cultural Workshops · सांस्कृतिक कार्यशाळा:</strong> Music, dance, craft classes, artist residencies and youth showcases.</li>
               <li><strong>Community · समुदाय:</strong> Health camps, environmental drives, village skill training and volunteer programs.</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <!-- HERO -->
+      <!-- Hero (left as before; external CSS controls visuals) -->
       <section class="hero-wide" id="hero">
-        <div class="hero-slideshow" id="heroSlideshow" aria-hidden="false">
+        <div class="hero-slideshow" id="heroSlideshow">
           <div class="hero-slide" data-img="assets/images/hero1.jpg" role="img" aria-label="hero image 1"></div>
           <div class="hero-slide" data-img="assets/images/hero2.jpg" role="img" aria-label="hero image 2"></div>
           <div class="hero-slide" data-img="assets/images/hero3.jpg" role="img" aria-label="hero image 3"></div>
@@ -95,8 +167,8 @@
 
           <div class="hero-content">
             <h2 class="hero-head multi">Preserve culture. Educate the next generation.</h2>
-            <p class="hero-sub white-text">Scholarships · Workshops · Community action · शिष्यवृत्ती · कार्यशाळा · समुदाय</p>
-            <div class="hero-ctas">
+            <p class="hero-sub" style="color:rgba(255,255,255,0.95)">Scholarships · Workshops · Community action · शिष्यवृत्ती · कार्यशाळा · समुदाय</p>
+            <div class="hero-ctas" style="margin-top:12px">
               <a class="btn primary" href="#support">Support · समर्थन</a>
               <a class="btn ghost" href="#volunteer-form">Volunteer · स्वयंसेवक</a>
             </div>
@@ -106,37 +178,37 @@
         </div>
       </section>
 
-      <!-- Programs grid -->
+      <!-- Programs grid (kept same) -->
       <section id="programs-cards" class="section">
-        <h3 class="section-heading multi underlined">Selected Programs · ठराविक कार्यक्रम</h3>
+        <h3 class="section-heading underlined">Selected Programs · ठराविक कार्यक्रम</h3>
         <div class="grid">
           <article class="grid-card">
-            <img src="assets/images/program1.jpg" alt="Education program" loading="lazy">
+            <img src="assets/images/program1.jpg" alt="Education program" loading="lazy" style="width:100%;height:180px;object-fit:cover;border-radius:8px">
             <h4 class="card-title multi">Education Support · शैक्षणिक सहाय्य</h4>
-            <p class="card-desc">Scholarships, mentoring, exam coaching, book-banks and digital classes for rural students. · शिष्यवृत्ती, मार्गदर्शन, स्पर्धा तयारी, पुस्तक-कोश व डिजिटल वर्ग.</p>
+            <p class="card-desc">Scholarships, mentoring, exam coaching, book-banks and digital classes for rural students.</p>
           </article>
 
           <article class="grid-card">
-            <img src="assets/images/program2.jpg" alt="Cultural workshops" loading="lazy">
+            <img src="assets/images/program2.jpg" alt="Cultural workshops" loading="lazy" style="width:100%;height:180px;object-fit:cover;border-radius:8px">
             <h4 class="card-title multi">Cultural Workshops · सांस्कृतिक कार्यशाळा</h4>
-            <p class="card-desc">Weekly classes with experienced artists, festival performances and craft market opportunities. · साप्ताहिक वर्ग, सणातील प्रदर्शन व हस्तकला बाजार.</p>
+            <p class="card-desc">Weekly classes with experienced artists, festival performances and craft market opportunities.</p>
           </article>
 
           <article class="grid-card">
-            <img src="assets/images/program3.jpg" alt="Community development" loading="lazy">
+            <img src="assets/images/program3.jpg" alt="Community development" loading="lazy" style="width:100%;height:180px;object-fit:cover;border-radius:8px">
             <h4 class="card-title multi">Community Development · समुदाय विकास</h4>
-            <p class="card-desc">Health camps, clean-up drives, village skill training and local partnerships. · आरोग्य शिबिरे, स्वच्छता मोहीम, कौशल्य प्रशिक्षण व भागीदारी.</p>
+            <p class="card-desc">Health camps, clean-up drives, village skill training and local partnerships.</p>
           </article>
         </div>
       </section>
 
       <section id="support" class="section card">
-        <h3 class="card-header boxed multi underlined">Support · समर्थन</h3>
+        <h3 class="card-header boxed underlined">Support · समर्थन</h3>
         <p class="card-text">Donate or partner. Use verified payment methods after board approval. · देणगी किंवा भागीदारी. मंडळ मंजुरीनंतर अधिकृत पेमेंट वापरा.</p>
       </section>
 
       <section id="volunteer-form" class="section card">
-        <h3 class="card-header boxed multi">Volunteer · स्वयंसेवक</h3>
+        <h3 class="card-header boxed">Volunteer · स्वयंसेवक</h3>
         <form name="volunteer" method="POST" data-netlify="true" class="vol-form">
           <input type="hidden" name="form-name" value="volunteer">
           <input name="name" placeholder="Full name · पूर्ण नाव" required>
@@ -154,7 +226,7 @@
       </section>
 
       <section id="contact" class="section card">
-        <h3 class="card-header boxed multi underlined">Contact · संपर्क</h3>
+        <h3 class="card-header boxed underlined">Contact · संपर्क</h3>
         <p class="card-text">
           Office Phone: +91 76205 87725 · Email: info@indrayani.org<br>
           Address: Indrayani Taluka, Pune District (sample) · कार्यालय पत्ता: इंद्रायणी तालुका, पुणे जिल्हा (नमुना)
@@ -162,7 +234,7 @@
       </section>
     </main>
 
-    <!-- FOOTER with exact promo text requested -->
+    <!-- footer with promo -->
     <footer class="footer">
       <div>© <span id="year"></span> Indrayani Kalagourav Foundation · इंद्रायणी कलागौरव फाउंडेशन</div>
       <div class="muted">
@@ -171,7 +243,7 @@
     </footer>
   </div>
 
-  <!-- SCRIPTS: preload + slideshow + fallback -->
+  <!-- scripts: preloader + hero slideshow (keeps previous behavior) -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 

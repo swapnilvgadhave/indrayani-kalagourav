@@ -4,39 +4,64 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Indrayani Kalagourav Foundation</title>
-  <meta name="description" content="Indrayani Kalagourav Foundation — preserving culture and empowering community in the Indrayani region." />
+  <meta name="description" content="Indrayani Kalagourav Foundation — preserving culture and empowering community" />
   <style>
-    :root{--accent:#0a66c2;--muted:#555;--card:#fbfbfd;--maxw:980px;--radius:10px}
+    :root{--accent:#0a66c2;--muted:#555;--card:#fbfbfd;--maxw:1100px;--radius:12px}
     *{box-sizing:border-box}
-    body{font-family:system-ui,Segoe UI,Arial,sans-serif;margin:0;color:#111;background:#fff;line-height:1.5}
-    .wrap{max-width:var(--maxw);margin:28px auto;padding:20px}
+    body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;color:#111;background:#fff;line-height:1.5;overflow-x:hidden}
+    .wrap{max-width:var(--maxw);margin:20px auto;padding:18px}
     header{display:flex;align-items:center;justify-content:space-between;gap:12px}
     .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:56px;height:56px;background:var(--accent);color:white;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800}
+    .logo-wrap{display:flex;align-items:center;gap:12px}
+    .logo-svg{width:64px;height:64px}
     nav a{margin-left:12px;text-decoration:none;color:var(--muted);font-weight:600}
-    .hero{display:grid;grid-template-columns:1fr 320px;gap:20px;margin-top:20px;align-items:start}
-    .card{background:var(--card);padding:16px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(10,10,10,0.04)}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:14px}
+    .rainbow{font-weight:800;font-size:1.5rem;background: linear-gradient(90deg,#ff4d4d,#ffb86b,#ffff7e,#7ef3a6,#6bd9ff,#b38bff);-webkit-background-clip: text;background-clip: text;color: transparent}
+    .hero{position:relative;margin-top:18px;border-radius:14px;overflow:hidden}
+    .slides{position:relative;height:320px}
+    .slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;display:flex;align-items:center;justify-content:center;background:#000;color:#fff;background-size:cover;background-position:center}
+    .slide.active{opacity:1}
+    .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.25),rgba(0,0,0,0.25))}
+    .content{position:relative;z-index:2;padding:20px;max-width:600px}
+    .controls{position:absolute;right:14px;top:14px;display:flex;gap:8px;z-index:3}
+    .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.6);cursor:pointer}
+    .dot.active{background:#fff}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:18px}
+    .card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 8px 30px rgba(15,15,15,0.04);transition:transform .28s ease,box-shadow .28s ease;transform:translateY(0);opacity:0}
+    .card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(15,15,15,0.08)}
+    .card.visible{opacity:1;transform:none}
     .muted{color:var(--muted)}
+    .founder-gallery{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+    .founder-photo{width:120px;height:120px;border-radius:10px;object-fit:cover}
     footer{margin-top:26px;color:var(--muted);font-size:0.9rem;padding:16px 0;border-top:1px solid #eee;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-    .small{font-size:0.9rem}
-    dl{margin:0}
-    dt{font-weight:700}
-    dd{margin:0 0 8px 0;color:var(--muted)}
-    @media(max-width:880px){nav{display:none}.hero{grid-template-columns:1fr}}
+    @media(max-width:900px){nav{display:none}.slides{height:220px}.slide .content{padding:12px}}
+    /* small helper */
+    .muted a{color:var(--muted);text-decoration:none}
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
       <div class="brand">
-        <div class="logo">IK</div>
+        <div class="logo-wrap" aria-hidden="true">
+          <!-- Sample inline SVG logo (replace later with client logo file) -->
+          <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="IK logo">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#ff5f6d"/>
+                <stop offset="0.5" stop-color="#ffc371"/>
+                <stop offset="1" stop-color="#7ee8fa"/>
+              </linearGradient>
+            </defs>
+            <rect x="6" y="6" width="88" height="88" rx="14" fill="url(#g1)"/>
+            <text x="50%" y="58%" fill="#fff" font-size="36" font-weight="800" text-anchor="middle" font-family="sans-serif">IK</text>
+          </svg>
+        </div>
         <div>
           <div style="font-weight:800">Indrayani Kalagourav Foundation</div>
           <div class="muted small">Preserving culture. Empowering community.</div>
         </div>
       </div>
-      <nav>
+      <nav aria-label="main">
         <a href="#about">About</a>
         <a href="#programs">Programs</a>
         <a href="#people">Leadership</a>
@@ -45,100 +70,170 @@
       </nav>
     </header>
 
-    <section class="hero">
-      <div>
-        <h1>We celebrate Indrayani’s culture and support local education</h1>
-        <p class="muted">Indrayani Kalagourav Foundation runs cultural workshops, education programs, and community events in the Indrayani river region. We work with local artists, schools, and volunteers to create sustained impact.</p>
-        <div style="display:flex;gap:10px;margin-top:12px">
-          <a class="card" href="#support" style="text-decoration:none;color:var(--accent);font-weight:700">Donate / Support</a>
-          <a class="card" href="#contact" style="text-decoration:none;color:var(--muted);font-weight:700">Contact Us</a>
+    <!-- HERO: use local images from assets/images/hero1.jpg etc -->
+    <section class="hero" aria-label="hero">
+      <div class="slides" id="slides">
+        <div class="slide active" style="background-image:url('assets/images/hero1.jpg');">
+          <div class="overlay"></div>
+          <div class="content">
+            <h2 class="rainbow">Education for every child</h2>
+            <p class="muted">Scholarships and after-school programs across the Indrayani region.</p>
+          </div>
+        </div>
+
+        <div class="slide" style="background-image:url('assets/images/hero2.jpg');">
+          <div class="overlay"></div>
+          <div class="content">
+            <h2 class="rainbow">Cultural workshops</h2>
+            <p class="muted">Music, dance and craft taught by local masters.</p>
+          </div>
+        </div>
+
+        <div class="slide" style="background-image:url('assets/images/hero3.jpg');">
+          <div class="overlay"></div>
+          <div class="content">
+            <h2 class="rainbow">Community action</h2>
+            <p class="muted">Clean-up drives and events that unite villages and families.</p>
+          </div>
+        </div>
+
+        <div class="controls" id="dots">
+          <div class="dot active" data-i="0" aria-label="slide 1"></div>
+          <div class="dot" data-i="1" aria-label="slide 2"></div>
+          <div class="dot" data-i="2" aria-label="slide 3"></div>
         </div>
       </div>
-
-      <aside class="card">
-        <h3>Support the cause</h3>
-        <p class="muted">Your donation helps fund scholarships and cultural programs.</p>
-        <dl style="margin-top:10px">
-          <dt>Preferred</dt><dd class="muted">UPI: <strong>swapnilg@upi</strong></dd>
-        </dl>
-      </aside>
     </section>
 
-    <section id="about" style="margin-top:18px">
-      <h2>About us</h2>
-      <p class="muted">Indrayani Kalagourav Foundation is a non-profit organization founded to promote education, preserve cultural heritage, and support rural community development in the Indrayani river basin of Maharashtra.</p>
-      <h3 style="margin-top:12px">Key facts</h3>
-      <dl>
-        <dt>Established</dt><dd class="muted">2024</dd>
-        <dt>Registered as</dt><dd class="muted">Charitable Trust — Registration No: Pending</dd>
-        <dt>Mission</dt><dd class="muted">To empower youth through education and sustain regional cultural identity through awareness, art, and community work.</dd>
-      </dl>
+    <section id="about" style="margin-top:20px">
+      <h3 class="rainbow">About us</h3>
+      <p class="muted">Indrayani Kalagourav Foundation supports education and cultural heritage. We deliver scholarships, workshops and community events.</p>
     </section>
 
     <section id="programs" style="margin-top:18px">
-      <h2>Programs</h2>
+      <h3 class="rainbow">Programs</h3>
       <div class="grid">
-        <div class="card">
+        <div class="card" data-appear>
+          <img src="assets/images/program1.jpg" alt="Education program - village classroom" style="width:100%;border-radius:8px;display:block;margin-bottom:10px" loading="lazy">
           <h4>Education Support</h4>
-          <p class="muted">Scholarships, after-school tuition, and mentorship for rural students.</p>
+          <p class="muted">Scholarships and mentoring for rural students.</p>
         </div>
-        <div class="card">
+
+        <div class="card" data-appear>
+          <img src="assets/images/program2.jpg" alt="Cultural workshops - dance or music" style="width:100%;border-radius:8px;display:block;margin-bottom:10px" loading="lazy">
           <h4>Cultural Workshops</h4>
-          <p class="muted">Music, dance, art, and traditional craft learning sessions for youth.</p>
+          <p class="muted">Dance, music and craft training run with local artists.</p>
         </div>
-        <div class="card">
+
+        <div class="card" data-appear>
+          <img src="assets/images/program3.jpg" alt="Community development event" style="width:100%;border-radius:8px;display:block;margin-bottom:10px" loading="lazy">
           <h4>Community Development</h4>
-          <p class="muted">Local clean-up drives, social events, and awareness programs in the Indrayani region.</p>
+          <p class="muted">Events, awareness and volunteer programs.</p>
         </div>
       </div>
     </section>
 
     <section id="people" style="margin-top:18px">
-      <h2>Leadership & Trustees</h2>
+      <h3 class="rainbow">Leadership & Trustees</h3>
       <div class="grid">
-        <div class="card">
+        <div class="card" data-appear>
           <h4>Founder</h4>
-          <p class="muted"><strong>Amit Pandurang Kengar</strong><br/>Visionary founder dedicated to preserving regional culture and supporting education initiatives in the Indrayani river area.</p>
+          <p class="muted"><strong>Amit Pandurang Kengar</strong><br/>Visionary founder dedicated to preserving regional culture.</p>
         </div>
-        <div class="card">
+        <div class="card" data-appear>
           <h4>Chairman</h4>
-          <p class="muted"><strong>Trupti Kengar</strong><br/>Leads organizational direction and oversees all community and cultural programs.</p>
+          <p class="muted"><strong>Trupti Kengar</strong><br/>Leads organizational direction and programs.</p>
         </div>
-        <div class="card">
+        <div class="card" data-appear>
           <h4>Executive Director</h4>
-          <p class="muted"><strong>Monali Kale</strong><br/>Responsible for daily operations, event coordination, and volunteer engagement.</p>
-        </div>
-        <div class="card">
-          <h4>Trustees</h4>
-          <p class="muted">1. [Trustee 1 name]<br/>2. [Trustee 2 name]<br/>3. [Trustee 3 name]</p>
+          <p class="muted"><strong>Monali Kale</strong><br/>Responsible for daily operations and events.</p>
         </div>
       </div>
-      <div style="margin-top:12px" class="card">
-        <h4>Contact person for public & media</h4>
-        <p class="muted"><strong>[Contact Name]</strong><br/>Phone: [phone] · Email: <a href="mailto:info@indrayani.org">info@indrayani.org</a></p>
+
+      <div class="founder-gallery" aria-hidden="false">
+        <img class="founder-photo" src="assets/images/founder_amit.jpg" alt="Amit Pandurang Kengar" loading="lazy">
+        <img class="founder-photo" src="assets/images/founder_trupti.jpg" alt="Trupti Kengar" loading="lazy">
+        <img class="founder-photo" src="assets/images/founder_monali.jpg" alt="Monali Kale" loading="lazy">
       </div>
     </section>
 
     <section id="support" style="margin-top:18px">
-      <h2>How to support</h2>
-      <p class="muted">You can support through volunteering, donations, or partnerships. Use verified UPI or contact us for account details.</p>
+      <h3 class="rainbow">How to support</h3>
+      <p class="muted">Donate, volunteer or partner. Use verified UPI or payment gateway details only after client approval.</p>
+      <div class="card" style="display:inline-block">
+        <strong>UPI</strong><div class="muted">swapnilg@upi (example) — replace with official UPI</div>
+      </div>
+    </section>
+
+    <section id="volunteer-form" style="margin-top:18px">
+      <h3 class="rainbow">Volunteer</h3>
+      <form name="volunteer" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="volunteer">
+        <div style="display:grid;gap:8px;max-width:540px">
+          <input name="name" placeholder="Full name" required>
+          <input name="email" type="email" placeholder="Email" required>
+          <input name="phone" placeholder="Phone">
+          <select name="interest">
+            <option value="">Interest area</option>
+            <option>Education</option>
+            <option>Culture</option>
+            <option>Events</option>
+          </select>
+          <textarea name="message" placeholder="How can you help?"></textarea>
+          <button type="submit" style="background:var(--accent);color:#fff;padding:10px;border-radius:8px;border:0">Sign up</button>
+        </div>
+      </form>
     </section>
 
     <section id="contact" style="margin-top:18px">
-      <h2>Contact</h2>
-      <div class="card">
+      <h3 class="rainbow">Contact</h3>
+      <div class="card" style="max-width:720px">
         <strong>Address</strong>
         <div class="muted">[Village/City], Pune District, Maharashtra</div>
         <div style="margin-top:8px"><strong>Phone</strong> <div class="muted">+91 [phone]</div></div>
-        <div style="margin-top:6px"><strong>Email</strong> <div class="muted"><a href="mailto:info@indrayani.org">info@indrayani.org</a></div></div>
+        <div style="margin-top:6px"><strong>Email</strong> <div class="muted"><a href="mailto:info@indrayani.org" class="muted">info@indrayani.org</a></div></div>
       </div>
     </section>
 
     <footer>
       <div>© <span id="year"></span> Indrayani Kalagourav Foundation. All rights reserved.</div>
-      <div class="small muted">Site developed &amp; maintained by <strong>Avant Software Systems Pune Director-Swapnil Gadhave</strong></div>
+      <div class="small muted">Site developed &amp; maintained by <strong>Avantika Software Systems</strong></div>
     </footer>
   </div>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // slideshow
+    (function(){
+      const slides = document.querySelectorAll('.slide');
+      const dots = document.querySelectorAll('.dot');
+      let i = 0;
+      function show(n){
+        slides.forEach((s,idx)=> s.classList.toggle('active', idx===n));
+        dots.forEach((d,idx)=> d.classList.toggle('active', idx===n));
+        i = n;
+      }
+      let timer = setInterval(()=> show((i+1)%slides.length), 5000);
+      document.getElementById('dots').addEventListener('click', e=>{
+        if(e.target.classList.contains('dot')){
+          clearInterval(timer);
+          show(Number(e.target.dataset.i));
+          timer = setInterval(()=> show((i+1)%slides.length), 5000);
+        }
+      });
+    })();
+
+    // Fade-in on scroll for .card[data-appear]
+    (function(){
+      const items = document.querySelectorAll('[data-appear]');
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(ent=>{
+          if(ent.isIntersecting){ ent.target.classList.add('visible'); obs.unobserve(ent.target) }
+        });
+      },{threshold:0.15});
+      items.forEach(it=>obs.observe(it));
+    })();
+  </script>
 </body>
 </html>

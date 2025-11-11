@@ -224,3 +224,105 @@ body, p, li, a, .card-text, .lead-role{
   .lead-card{width:92%}
   .grid-card{width:92%}
 }
+/* ===== Fix: remove top gap + boxed tabs (final) ===== */
+
+/* Remove any stray top gap above the header */
+html, body { margin: 0; padding: 0; }
+.header-full.plain-header.full-header-horiz,
+.header-inner,
+.site {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Force header to sit at very top with minimal height */
+.header-full.plain-header.full-header-horiz {
+  position: relative;
+  top: 0;
+  padding: 6px 0 !important;
+  box-shadow: none;
+}
+
+/* Tighten header inner spacing */
+.header-inner {
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+}
+
+/* Keep brand area tightly centered (logo + title together) */
+.brand-wrap.full-width {
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+}
+
+/* Slightly smaller logo to keep it close to title */
+.brand-logo { width: 140px !important; height: auto !important; margin-right: 8px !important; }
+
+/* Pull content up so first content row sits close below header */
+.main { padding-top: 8px !important; }
+
+/* If a hero/empty block forces big top, collapse its top margin */
+.hero-wide { margin-top: 6px !important; }
+
+/* ===== Boxed tab style (white card with colored stripe) ===== */
+.tab {
+  background: #ffffff !important;          /* white card body */
+  color: var(--accent-c) !important;      /* heading color */
+  border-radius: 14px !important;
+  padding: 14px 12px !important;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.07) !important;
+  border: 1px solid rgba(0,0,0,0.06) !important;
+  position: relative !important;
+  overflow: visible !important;
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+}
+
+/* colored stripe on top of each tab */
+.tab::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 12px;
+  right: 12px;
+  height: 8px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background: linear-gradient(90deg, var(--accent-a), var(--accent-b), var(--accent-c));
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+/* active tab: stronger stripe + slight lift */
+.tab.active {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 22px 60px rgba(0,0,0,0.12) !important;
+}
+.tab.active::before {
+  height: 10px;
+  left: 10px;
+  right: 10px;
+  background: linear-gradient(90deg, var(--accent-c), var(--accent-a));
+}
+
+/* Tab text: bold and readable (no white-on-gradient here) */
+.tab,
+.tab small {
+  color: var(--dark) !important;
+  -webkit-text-stroke: 0px !important;
+  text-shadow: none !important;
+  font-weight: 800 !important;
+}
+
+/* Small-screen safety: keep tab boxes stacked and readable */
+@media (max-width: 720px) {
+  .main-nav { gap: 10px; width: calc(100% - 28px); }
+  .tab { min-width: 0; padding: 12px 10px; }
+  .tab::before { left: 8px; right: 8px; }
+}
+
+/* Extra safety: ensure no element forces a large top gap */
+* { -webkit-margin-before: 0; -webkit-margin-after: 0; }
+
+/* end of patch */

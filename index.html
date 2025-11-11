@@ -9,103 +9,86 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <!-- PRELOADER -->
   <div id="preloader" aria-hidden="true"><div class="preloader-inner"><svg class="spinner" viewBox="0 0 50 50"><circle cx="25" cy="25" r="20" fill="none" stroke-width="4"></circle></svg></div></div>
 
-  <div id="site" class="site" style="opacity:0">
+  <div class="site" id="site" style="opacity:0">
+    <!-- FULLHEIGHT HERO SPLIT: left = big logo + name, right = full-bleed slideshow -->
+    <header class="full-split">
+      <div class="split-left">
+        <picture class="brand-picture">
+          <source srcset="assets/images/logo@2x.jpg 2x, assets/images/logo.jpg 1x" type="image/jpeg">
+          <img src="assets/images/logo.jpg" alt="Indrayani Kalagourav Foundation logo" class="brand-logo" width="320" height="320">
+        </picture>
 
-    <!-- HORIZONTAL HEADER (full width) -->
-    <header class="header-wide">
-      <div class="header-inner">
-        <!-- left: logo -->
-        <div class="hdr-left">
-          <picture>
-            <source srcset="assets/images/logo@2x.jpg 2x, assets/images/logo.jpg 1x" type="image/jpeg">
-            <img src="assets/images/logo.jpg" alt="Indrayani Kalagourav Foundation logo" class="logo" width="96" height="96">
-          </picture>
-        </div>
-
-        <!-- center: big title -->
-        <div class="hdr-center">
-          <h1 class="site-title">Indrayani <span class="accent">Kalagourav</span> Foundation</h1>
-          <div class="site-tag">Art · Education · Humanity</div>
-        </div>
-
-        <!-- right: nav -->
-        <nav class="hdr-right" aria-label="Main navigation">
-          <a href="#about">About</a>
-          <a href="#programs">Programs</a>
-          <a href="#people">Leadership</a>
-          <a href="#support">Support</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
-    </header>
-
-    <!-- FULL-WIDTH HERO (horizontal, wide) -->
-    <section class="hero-wide" id="hero">
-      <div class="hero-slideshow" id="heroSlideshow" aria-hidden="false">
-        <div class="hero-slide visible" data-img="assets/images/hero1.jpg" role="img" aria-label="hero image 1"></div>
-        <div class="hero-slide" data-img="assets/images/hero2.jpg" role="img" aria-label="hero image 2"></div>
-        <div class="hero-slide" data-img="assets/images/hero3.jpg" role="img" aria-label="hero image 3"></div>
-
-        <div class="hero-overlay"></div>
-
-        <div class="hero-content">
-          <h2 class="hero-head">Preserve culture. Educate the next generation.</h2>
-          <p class="hero-sub">Scholarships, cultural workshops and community action across the Indrayani region.</p>
-          <div class="hero-ctas">
+        <div class="brand-copy">
+          <h1 class="brand-title">Indrayani<br><span class="highlight">Kalagourav</span><br>Foundation</h1>
+          <p class="brand-sub">Art · Education · Humanity</p>
+          <div class="brand-cta">
             <a class="btn primary" href="#support">Support</a>
             <a class="btn ghost" href="#volunteer-form">Volunteer</a>
           </div>
         </div>
 
-        <div class="hero-dots" id="heroDots"></div>
-      </div>
-    </section>
-
-    <!-- MAIN CONTENT -->
-    <main class="main">
-
-      <section id="about" class="section card">
-        <div class="grid-2">
-          <div>
-            <h3>About</h3>
-            <p class="muted">Indrayani Kalagourav Foundation preserves local arts and provides educational opportunities through scholarships, workshops and community events.</p>
-          </div>
-          <div>
-            <h3>Mission</h3>
-            <p class="muted">To empower youth through education and preserve regional arts by creating sustainable programs that blend tradition with modern skills.</p>
-          </div>
+        <!-- single leadership strip under name (kept minimal here) -->
+        <div class="lead-strip">
+          <div class="lead-item"><img src="assets/images/founder_amit.jpg" alt="Amit Pandurang Kengar" class="lead-photo"><div class="lead-name">Amit Pandurang Kengar</div><div class="lead-role">Founder</div></div>
+          <div class="lead-item"><img src="assets/images/founder_trupti.jpg" alt="Trupti Kengar" class="lead-photo"><div class="lead-name">Trupti Kengar</div><div class="lead-role">Chairman</div></div>
+          <div class="lead-item"><img src="assets/images/founder_monali.jpg" alt="Monali Kale" class="lead-photo"><div class="lead-name">Monali Kale</div><div class="lead-role">Exec. Director</div></div>
         </div>
+      </div>
+
+      <div class="split-right">
+        <div class="slideshow" id="slideshow">
+          <div class="slide visible" data-img="assets/images/hero1.jpg"></div>
+          <div class="slide" data-img="assets/images/hero2.jpg"></div>
+          <div class="slide" data-img="assets/images/hero3.jpg"></div>
+          <div class="slide-overlay"></div>
+          <div class="slide-dots" id="dots"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- NAV floating -->
+    <nav class="top-nav">
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#people">Leadership</a>
+      <a href="#support">Support</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- MAIN CONTENT (starts after full-height hero) -->
+    <main class="main">
+      <section id="about" class="section card">
+        <h2>About</h2>
+        <p class="muted">Indrayani Kalagourav Foundation preserves local arts and provides educational opportunities through scholarships, cultural workshops and community events.</p>
       </section>
 
       <section id="programs" class="section">
-        <h3 class="section-heading">Programs</h3>
+        <h2>Programs</h2>
         <div class="grid">
-          <article class="grid-card" data-appear>
-            <img src="assets/images/program1.jpg" alt="Education program" loading="lazy">
-            <h4>Education Support</h4>
-            <p class="muted">Scholarships, mentoring and learning resources.</p>
+          <article class="card grid-card" data-appear>
+            <img src="assets/images/program1.jpg" alt="Program 1" loading="lazy">
+            <h3>Education Support</h3>
+            <p class="muted">Scholarships and mentoring for rural students.</p>
           </article>
 
-          <article class="grid-card" data-appear>
-            <img src="assets/images/program2.jpg" alt="Cultural workshops" loading="lazy">
-            <h4>Cultural Workshops</h4>
-            <p class="muted">Music, dance and craft training by local artists.</p>
+          <article class="card grid-card" data-appear>
+            <img src="assets/images/program2.jpg" alt="Program 2" loading="lazy">
+            <h3>Cultural Workshops</h3>
+            <p class="muted">Music, dance and craft training.</p>
           </article>
 
-          <article class="grid-card" data-appear>
-            <img src="assets/images/program3.jpg" alt="Community program" loading="lazy">
-            <h4>Community Development</h4>
-            <p class="muted">Events, awareness drives and volunteer programs.</p>
+          <article class="card grid-card" data-appear>
+            <img src="assets/images/program3.jpg" alt="Program 3" loading="lazy">
+            <h3>Community Development</h3>
+            <p class="muted">Events, clean-ups and volunteer programs.</p>
           </article>
         </div>
       </section>
 
-      <!-- PEOPLE: single section only (no duplicates) -->
       <section id="people" class="section">
-        <h3 class="section-heading">Leadership & Trustees</h3>
+        <h2>Leadership & Trustees</h2>
         <div class="people-row">
           <div class="person-card">
             <img src="assets/images/founder_amit.jpg" alt="Amit Pandurang Kengar" loading="lazy">
@@ -128,30 +111,30 @@
       </section>
 
       <section id="support" class="section card">
-        <h3>Support</h3>
+        <h2>Support</h2>
         <p class="muted">Donate or partner. Use verified payment methods after board approval.</p>
       </section>
 
       <section id="volunteer-form" class="section card">
-        <h3>Volunteer</h3>
+        <h2>Volunteer</h2>
         <form name="volunteer" method="POST" data-netlify="true" class="vol-form">
           <input type="hidden" name="form-name" value="volunteer">
           <input name="name" placeholder="Full name" required>
           <input name="email" type="email" placeholder="Email" required>
           <input name="phone" placeholder="Phone">
           <select name="interest">
-            <option value="">Interest area</option>
+            <option value="">Interest</option>
             <option>Education</option>
             <option>Culture</option>
             <option>Events</option>
           </select>
           <textarea name="message" placeholder="How can you help?"></textarea>
-          <button type="submit" class="btn primary">Sign up</button>
+          <button class="btn primary" type="submit">Sign up</button>
         </form>
       </section>
 
       <section id="contact" class="section card">
-        <h3>Contact</h3>
+        <h2>Contact</h2>
         <p class="muted">Phone: +91 [phone] · Email: info@indrayani.org</p>
       </section>
     </main>
@@ -163,14 +146,13 @@
   </div>
 
   <script>
-    // set year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Preloader + load hero images (local)
+    // Preloader + load hero slides (local images)
     (function(){
       const pre = document.getElementById('preloader');
       const site = document.getElementById('site');
-      const slides = document.querySelectorAll('.hero-slide');
+      const slides = document.querySelectorAll('.slide');
       slides.forEach((el, idx)=>{
         const src = el.dataset.img;
         const img = new Image();
@@ -180,36 +162,35 @@
           if(idx===0) el.classList.add('visible');
         };
       });
-
       // build dots
-      const dots = document.getElementById('heroDots');
-      slides.forEach((_,i)=>{
-        const b = document.createElement('button');
-        b.className = 'dot' + (i===0 ? ' active' : '');
-        b.dataset.i = i;
-        dots.appendChild(b);
+      const dots = document.getElementById('dots');
+      slides.forEach((s,i)=>{
+        const d = document.createElement('button');
+        d.className = 'dot' + (i===0 ? ' active' : '');
+        d.dataset.i = i;
+        dots.appendChild(d);
       });
-
+      // hide preloader
       const hide = ()=>{ pre.classList.add('done'); site.style.opacity = 1; };
       window.addEventListener('load', ()=> setTimeout(hide, 300));
       setTimeout(hide, 1500);
     })();
 
-    // hero rotate + dot clicks
+    // Hero rotate + dot click
     (function(){
-      const slides = document.querySelectorAll('.hero-slideshow .hero-slide');
+      const slides = document.querySelectorAll('.slideshow .slide');
       const dots = document.querySelectorAll('.dot');
       if(!slides.length) return;
-      let idx = 0;
+      let idx=0;
       function show(n){
         slides.forEach((s,i)=> s.classList.toggle('visible', i===n));
         dots.forEach((d,i)=> d.classList.toggle('active', i===n));
-        idx = n;
+        idx=n;
       }
-      let t = setInterval(()=> show((idx+1)%slides.length), 5000);
-      document.getElementById('heroDots').addEventListener('click', e=>{
+      let t = setInterval(()=> show((idx+1)%slides.length), 4800);
+      document.getElementById('dots').addEventListener('click', e=>{
         if(e.target.classList.contains('dot')){
-          clearInterval(t); show(Number(e.target.dataset.i)); t = setInterval(()=> show((idx+1)%slides.length), 5000);
+          clearInterval(t); show(Number(e.target.dataset.i)); t = setInterval(()=> show((idx+1)%slides.length), 4800);
         }
       });
     })();

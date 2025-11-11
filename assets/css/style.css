@@ -219,3 +219,85 @@ body {
   .lead-grid { justify-content: center; gap: 20px; }
   .lead-card { width: 92%; }
 }
+/* ===== Fix: prevent header text overlap + increase image spacing ===== */
+
+/* make brand center stack cleanly and control spacing */
+.brand-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  max-width: 72%; /* keep title from growing over the side columns */
+  margin: 0 auto;
+  padding: 0 8px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* responsive heading sizes to avoid vertical overlap */
+.brand-title {
+  font-size: clamp(2.0rem, 3.8vw, 3.2rem);
+  line-height: 1.02;
+  margin: 0;
+  white-space: normal;
+}
+
+/* marathi line smaller and safe wrap */
+.brand-title.marathi {
+  font-size: clamp(0.95rem, 1.8vw, 1.35rem);
+  line-height: 1.05;
+  margin-top: 4px;
+  white-space: normal;
+}
+
+/* reduce logo width slightly on narrow viewports so title has room */
+.brand-left .brand-logo {
+  max-width: 180px;
+  width: 100%;
+  height: auto;
+}
+
+/* ensure nav sits below the title and has breathing room */
+.main-nav { margin-top: 10px; z-index: 3; }
+
+/* increase vertical spacing between leadership photos and cards */
+.lead-grid { gap: 60px; margin-top: 28px; }
+.lead-card { padding: 18px; }
+
+/* larger gaps and safe image sizing for program photos */
+.grid { gap: 34px; }
+.grid-card img, .lead-card img {
+  display: block;
+  width: 100%;
+  height: auto; /* prefer natural height to avoid cropping overlap */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* prevent header/title from overlapping content on very wide but short screens */
+@media (max-height: 700px) and (min-width: 900px) {
+  .brand-title { font-size: 2.6rem; }
+  .brand-title.marathi { font-size: 1.05rem; }
+  .brand-left { flex: 0 0 160px; }
+  .brand-end { flex: 0 0 160px; }
+}
+
+/* portrait / small widths: stack logo above title to avoid collision */
+@media (max-width: 680px) {
+  .brand-wrap.full-width { flex-direction: column; gap: 10px; align-items: center; }
+  .brand-left { order: 0; flex: 0 0 auto; }
+  .brand-center { order: 1; max-width: 100%; }
+  .main-nav { width: calc(100% - 28px); margin-top: 8px; }
+  .lead-grid { gap: 24px; }
+}
+
+/* stronger separation between hero text and gallery images to avoid vertical intersection */
+.hero-wide { margin-top: 36px; margin-bottom: 36px; z-index: 1; }
+.card, .grid-card { z-index: 2; position: relative; }
+
+/* tiny polish: ensure headings don't bleed into images (shadow + background fallback) */
+.card-header, .section-heading {
+  background-clip: padding-box;
+  padding: 6px 10px;
+  border-radius: 8px;
+}

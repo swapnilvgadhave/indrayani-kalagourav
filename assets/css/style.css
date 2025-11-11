@@ -331,3 +331,11 @@ body {
   .main-nav { flex-wrap: wrap; }
   .lead-card { width:100%; }
 }
+/* Make header scroll normally (non-sticky) */
+.header-full.plain-header {
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+  backdrop-filter: none !important;
+  background: transparent !important;
+}

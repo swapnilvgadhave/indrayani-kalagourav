@@ -1,280 +1,226 @@
-/* ---------- THEME ---------- */
+/* ---------- COMPLETE STYLE.CSS - FINAL THOROUGH VERSION ---------- */
+
+/* THEME */
 :root{
-  --accent-1:#ff0066;
-  --accent-2:#ff9800;
-  --accent-3:#00e5ff;
-  --accent-4:#7cffb2;
+  --accent-a:#ff1744;
+  --accent-b:#ff9100;
+  --accent-c:#00bcd4;
+  --accent-d:#00e676;
   --dark:#041021;
-  --muted:#16333a;
+  --muted:#465a64;
   --maxw:1360px;
 }
 
-/* ---------- RESET & BASE ---------- */
+/* RESET & BASE */
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
+html,body{height:100%;width:100%}
 body{
-  font-family:"Poppins",Arial,sans-serif;
-  background:linear-gradient(180deg,#fff0f6 0%,#fff8ea 35%,#e6fff8 100%);
-  color:var(--dark);
+  margin:0;
+  padding:0;
+  font-family:"Poppins",system-ui,Arial,sans-serif;
   -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  background:linear-gradient(180deg,#fff6f8 0%,#fffdf2 40%,#effff7 100%);
+  color:var(--dark);
+  line-height:1.45;
 }
-.site{max-width:var(--maxw);margin:0 auto;padding-bottom:60px}
 
-/* ---------- HEADER: horizontal, compact ---------- */
+/* SITE WRAPPER */
+.site{max-width:var(--maxw);margin:0 auto;min-height:100vh;padding-bottom:56px;}
+
+/* HEADER - compact, centered, no top gap */
 .header-full.plain-header.full-header-horiz{
-  position:static;
-  background:rgba(255,255,255,0.95);
+  position:relative;
+  background:rgba(255,255,255,0.96);
   border-bottom:1px solid rgba(0,0,0,0.04);
-  padding:8px 0 6px;
-  z-index:40;
+  padding:6px 0;
+  margin:0;
+  z-index:50;
 }
-.header-inner{max-width:var(--maxw);margin:0 auto;padding:6px 18px;box-sizing:border-box}
+.header-inner{max-width:var(--maxw);margin:0 auto;padding:4px 16px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;}
 
-/* brand layout */
+/* Brand area - logo + centered title together */
 .brand-wrap.full-width{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:nowrap;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:6px 8px;
 }
-.brand-left{flex:0 0 auto;display:flex;align-items:center;justify-content:flex-start;margin-right:6px}
-.brand-center{flex:1 1 auto;text-align:center;padding:0 8px;max-width:62%;margin:0 auto}
-.brand-end{flex:0 0 220px;opacity:0}
+.brand-left{flex:0 0 auto;display:flex;align-items:center;justify-content:center;margin:0;padding:0}
+.brand-center{flex:1 1 auto;max-width:72%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 8px;word-break:break-word;}
 
-/* logo */
-.brand-logo{width:160px;height:auto;object-fit:contain;margin:0}
+/* Logo: smaller so title fits; sits next to title */
+.brand-logo{
+  width:150px;height:auto;display:block;object-fit:contain;margin:0;padding:0;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.18));
+}
 
-/* title - vivid, high-contrast */
+/* Title: vivid gradient, strong shadow, tight spacing */
 .brand-title{
   font-family:"Playfair Display",serif;
-  font-size:clamp(2rem,4vw,3.4rem);
   font-weight:900;
-  line-height:1.03;
-  margin:0;
+  font-size:clamp(1.8rem,4vw,3.4rem);
+  line-height:1.02;
   color:transparent;
-  background:linear-gradient(90deg,#ff0055 0%,#ff8a00 40%,#00c6ff 70%);
+  background:linear-gradient(90deg,var(--accent-a) 0%, var(--accent-b) 40%, var(--accent-c) 75%);
   -webkit-background-clip:text;background-clip:text;
-  -webkit-text-stroke:0.9px rgba(0,0,0,0.32);
-  text-shadow:0 8px 26px rgba(0,0,0,0.42);
+  -webkit-text-stroke:0.9px rgba(0,0,0,0.34);
+  text-shadow:0 8px 26px rgba(0,0,0,0.40);
+  margin:0;padding:0;
+  text-align:center;
 }
 .brand-title.marathi{
-  display:block;margin-top:4px;
-  font-size:clamp(0.95rem,1.9vw,1.3rem);
-  font-weight:800;
-  color:transparent;
-  background:linear-gradient(90deg,var(--accent-2),var(--accent-3),var(--accent-4));
+  font-size:clamp(0.9rem,1.6vw,1.25rem);font-weight:800;margin-top:4px;color:transparent;
+  background:linear-gradient(90deg,var(--accent-b),var(--accent-c),var(--accent-d));
   -webkit-background-clip:text;background-clip:text;
-  -webkit-text-stroke:0.4px rgba(0,0,0,0.18);
-  text-shadow:0 3px 10px rgba(0,0,0,0.22);
+  -webkit-text-stroke:0.4px rgba(0,0,0,0.22);
+  text-shadow:0 4px 12px rgba(0,0,0,0.28);
 }
-.brand-sub{margin-top:8px;font-weight:700;color:rgba(4,16,33,0.68);font-size:1rem}
 
-/* ---------- NAVIGATION ---------- */
+/* NAV TABS: sit below header, full-width stretch */
+.nav-wrap{width:100%;display:flex;justify-content:center}
 .main-nav{
-  width:calc(100% - 56px);
-  max-width:1240px;
-  margin:10px auto 0;
-  padding:6px 20px;
   display:flex;
-  gap:14px;
+  gap:12px;
+  width:calc(100% - 60px);
+  max-width:1100px;
+  margin:10px auto 0;
+  padding:4px;
+  align-items:center;
   justify-content:space-between;
 }
 .tab{
   flex:1 1 0;
-  text-align:center;
+  min-width:110px;
   padding:12px 10px;
   border-radius:14px;
+  background:linear-gradient(90deg,#ff6f91,#ff9671,#ffc75f);
   color:#fff;
   font-weight:800;
+  text-align:center;
   text-decoration:none;
-  background:linear-gradient(90deg,#ff6f91,#ff9671,#ffc75f);
-  border:none;
-  box-shadow:0 14px 40px rgba(0,0,0,0.06);
-  transition:transform .12s ease,box-shadow .12s ease;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+  transition:transform .12s ease,box-shadow .12s ease,background .12s ease;
+  display:flex;flex-direction:column;align-items:center;
 }
-.tab:hover{transform:translateY(-3px);box-shadow:0 22px 60px rgba(0,0,0,0.10);background:linear-gradient(90deg,#ff0066,#ff9800)}
-.tab.active{background:linear-gradient(90deg,#00e5ff,#00c2ff);box-shadow:0 26px 90px rgba(0,0,0,0.12)}
-.tab small{font-weight:600;color:rgba(255,255,255,0.92);font-size:0.82rem;margin-top:4px}
+.tab small{font-weight:600;color:rgba(255,255,255,0.95);margin-top:6px;font-size:0.86rem}
+.tab:hover{transform:translateY(-3px);box-shadow:0 24px 60px rgba(0,0,0,0.12);background:linear-gradient(90deg,var(--accent-a),var(--accent-b))}
+.tab.active{background:linear-gradient(90deg,var(--accent-c),#00a8d8);box-shadow:0 28px 80px rgba(0,0,0,0.14)}
 
-/* ---------- MAIN CONTENT ---------- */
-.main{padding:18px 6% 48px}
+/* MAIN CONTENT */
+.main{padding:14px 5% 48px}
 
-/* section heading */
-.section-heading{display:inline-block;font-weight:900;font-size:1.45rem;text-align:center;margin-bottom:14px;-webkit-text-stroke:0.45px rgba(0,0,0,0.18);text-shadow:0 3px 10px rgba(0,0,0,0.28)}
-.section-heading::after{content:"";display:block;width:280px;height:6px;border-radius:6px;margin:8px auto 0;background:linear-gradient(90deg,var(--accent-1),var(--accent-2),var(--accent-3))}
-
-/* ---------- LEADERSHIP ---------- */
-.leadership-section{text-align:center;margin:56px 0 20px}
-.lead-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:48px;max-width:1200px;margin:20px auto 0}
-.lead-card{width:280px;background:#fff;border-radius:12px;padding:18px;box-shadow:0 28px 110px rgba(0,0,0,0.12);border:1px solid rgba(0,0,0,0.04);text-align:center}
-.lead-card img{width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;border-radius:10px;display:block}
-.lead-name{font-size:1.15rem;font-weight:800;margin-top:10px;text-shadow:0 3px 10px rgba(0,0,0,0.26)}
-.lead-role{font-size:1rem;color:var(--muted);margin-top:6px}
-
-/* ---------- CARDS ---------- */
-.card{background:#fff;padding:30px;border-radius:14px;margin-top:40px;box-shadow:0 30px 110px rgba(0,0,0,0.10);border:1px solid rgba(0,0,0,0.04)}
-.card-header{display:inline-block;padding:10px 16px;border-radius:10px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:#fff;font-weight:900;font-size:1.18rem;text-shadow:0 5px 18px rgba(0,0,0,0.32)}
-.card-text{color:var(--dark);font-weight:600;line-height:1.7;font-size:1.05rem}
-
-/* ensure headers use vivid gradient text style as fallback */
-.card-header, .grid-card h4, .card-title, .section-heading{
-  /* maintain readable boxed header but also align visual style */
-  background-clip:padding-box;
-  position:relative;
-  z-index:4;
+/* Section heading consistent bright style */
+.section-heading{
+  display:block; font-weight:900; font-size:1.35rem; text-align:center; margin:6px auto 12px;
+  color:transparent; background:linear-gradient(90deg,var(--accent-a),var(--accent-b),var(--accent-c));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-stroke:0.45px rgba(0,0,0,0.18);
+  text-shadow:0 4px 14px rgba(0,0,0,0.30);
 }
 
-/* ---------- GRID / PROGRAMS ---------- */
-.grid{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-around}
-.grid-card{width:380px;background:#fff;border-radius:12px;box-shadow:0 20px 80px rgba(0,0,0,0.08);padding:16px}
-.grid-card img{width:100%;aspect-ratio:4/3;height:auto;max-height:360px;object-fit:cover;border-radius:10px;display:block}
-.grid-card h4{margin-top:10px;font-size:1.1rem;color:var(--accent-1);text-shadow:0 5px 18px rgba(0,0,0,0.32);font-weight:900}
+/* LEADERSHIP / TRUSTEES - centered, spaced */
+.leadership-section{width:100%;text-align:center;margin:34px auto 18px}
+.lead-grid{
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  flex-wrap:wrap;
+  gap:48px;
+  max-width:1200px;
+  margin:10px auto 0;
+}
+.lead-card{
+  width:300px;
+  background:#fff;border-radius:12px;padding:16px;
+  box-shadow:0 24px 90px rgba(0,0,0,0.10);
+  border:1px solid rgba(0,0,0,0.04);
+  text-align:center;
+}
+.lead-card img{
+  width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;border-radius:10px;display:block;
+}
+.lead-name{font-weight:800;margin-top:10px;font-size:1.15rem;color:var(--accent-a);text-shadow:0 4px 12px rgba(0,0,0,0.28)}
+.lead-role{color:var(--muted);font-size:0.98rem;margin-top:6px}
 
-/* ---------- HERO ---------- */
-.hero-wide{margin:30px 0}
-.hero-slideshow{position:relative;height:52vh;min-height:320px;overflow:hidden;border-radius:14px;box-shadow:0 40px 140px rgba(0,0,0,0.12)}
-.hero-slide{position:absolute;inset:0;background-position:center;background-size:cover;opacity:0;transition:opacity .6s ease}
-.hero-slide.visible{opacity:1}
-.hero-overlay.strong{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.56),rgba(0,0,0,0.22));border-radius:14px}
-.hero-content{position:absolute;left:6%;top:50%;transform:translateY(-50%);z-index:6;max-width:720px;color:#fff;text-shadow:0 18px 60px rgba(0,0,0,0.7)}
-.hero-head{font-family:"Playfair Display",serif;font-size:2.6rem;margin-bottom:8px;font-weight:900}
-.hero-sub{font-size:1.05rem;color:rgba(255,255,255,0.95);margin-bottom:12px}
-
-/* ---------- IMAGE SAFETY: avoid stretch, keep rectangular ---------- */
-.lead-card img,.grid-card img,.card img{width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;display:block;border-radius:10px}
-@media (max-width:900px){.lead-card img,.grid-card img{aspect-ratio:16/9;max-height:260px}}
-@media (max-width:480px){.lead-card img,.grid-card img{aspect-ratio:4/3;max-height:220px}}
-
-/* ---------- VISUAL CONSISTENCY: headings match bright style ---------- */
-.card-header,.grid-card h4,.card-title,.section-heading{
-  color:transparent;
-  background:linear-gradient(90deg,#ff0055 0%,#ff8a00 40%,#00c6ff 70%);
-  -webkit-background-clip:text;
-  background-clip:text;
+/* CARDS & PROGRAMS - bright headers, no overlap */
+.card{background:#fff;padding:26px;border-radius:14px;margin-top:32px;box-shadow:0 30px 110px rgba(0,0,0,0.08);border:1px solid rgba(0,0,0,0.04)}
+.card-header{
+  display:inline-block;padding:10px 14px;border-radius:10px;
+  font-weight:900;font-size:1.15rem;color:transparent;
+  background:linear-gradient(90deg,var(--accent-a),var(--accent-b),var(--accent-c));
+  -webkit-background-clip:text;background-clip:text;
   -webkit-text-stroke:0.45px rgba(0,0,0,0.18);
   text-shadow:0 5px 18px rgba(0,0,0,0.34);
 }
+.card-text{color:var(--dark);font-weight:600;line-height:1.7;font-size:1.02rem;margin-top:12px}
 
-/* ---------- FOOTER ---------- */
-.footer{padding:24px 6%;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;color:var(--muted);border-top:1px solid rgba(0,0,0,0.05);background:linear-gradient(180deg,rgba(255,255,255,0.96),rgba(250,255,255,0.96))}
-.footer a{color:var(--accent-1);text-decoration:none;font-weight:800}
+/* GRID / PROGRAM CARDS */
+.grid{display:flex;flex-wrap:wrap;gap:32px;justify-content:center;margin-top:24px}
+.grid-card{
+  width:360px;background:#fff;border-radius:12px;padding:12px;
+  box-shadow:0 20px 80px rgba(0,0,0,0.08);border:1px solid rgba(0,0,0,0.04);
+}
+.grid-card img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;display:block}
+.grid-card h4{margin-top:10px;font-weight:900;color:transparent;background:linear-gradient(90deg,var(--accent-a),var(--accent-b),var(--accent-c));-webkit-background-clip:text;background-clip:text;text-shadow:0 4px 14px rgba(0,0,0,0.32)}
 
-/* ---------- SAFETY: reduce top gap and ensure title never overlaps images ---------- */
-/* reduce global top spacing */
-.main{padding-top:18px}
-/* keep center title constrained */
-.brand-center{max-width:62%;padding:0 8px;overflow-wrap:break-word;word-break:break-word}
+/* HERO SLIDESHOW (tuned: smoother fade) */
+.hero-wide{margin:18px 0}
+.hero-slideshow{position:relative;height:50vh;min-height:320px;overflow:hidden;border-radius:14px;box-shadow:0 40px 140px rgba(0,0,0,0.12)}
+.hero-slide{position:absolute;inset:0;background-position:center;background-size:cover;opacity:0;transition:opacity .9s ease}
+.hero-slide.visible{opacity:1}
+.hero-overlay.strong{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.56),rgba(0,0,0,0.22));border-radius:14px}
+.hero-content{position:absolute;left:5%;top:50%;transform:translateY(-50%);z-index:6;max-width:720px;color:#fff;text-shadow:0 18px 60px rgba(0,0,0,0.7)}
 
-/* extra breathing between header and first content row */
-.leadership-section{margin-top:56px}
+/* IMAGE SAFETY: rectangular aspect ratio and no stretch */
+.lead-card img,.grid-card img,.card img{width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;display:block;border-radius:10px}
+@media (max-width:900px){
+  .lead-card img,.grid-card img{aspect-ratio:16/9;max-height:260px}
+}
+@media (max-width:480px){
+  .lead-card img,.grid-card img{aspect-ratio:4/3;max-height:220px}
+}
 
-/* ---------- RESPONSIVE ---------- */
+/* FOOTER */
+.footer{padding:20px 5%;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;color:var(--muted);border-top:1px solid rgba(0,0,0,0.04);background:linear-gradient(180deg,rgba(255,255,255,0.98),rgba(250,255,255,0.98))}
+.footer a{color:var(--accent-a);text-decoration:none;font-weight:800}
+
+/* POLISH: remove any stray top gap and ensure content sits close to header */
+.header-offset-fix{margin-top:0;padding-top:0}
+.main{padding-top:10px}
+
+/* FORCE title + logo proximity and centering on all viewports */
+.brand-wrap.full-width{justify-content:center;align-items:center}
+.brand-left{margin:0;padding:0}
+.brand-logo{width:150px}
+
+/* make all primary text elements more vivid and brighter */
+body, p, li, a, .card-text, .lead-role{
+  color:rgba(4,16,33,0.92);
+  text-shadow:none;
+}
+
+/* brighten headers and tabs (make unmistakably vivid) */
+.brand-title, .brand-title.marathi, .card-header, .grid-card h4, .section-heading, .tab{
+  -webkit-text-stroke:0.6px rgba(0,0,0,0.28);
+}
+
+/* RESPONSIVE ADJUSTMENTS */
 @media (max-width:1100px){
   .brand-logo{width:140px}
-  .brand-title{font-size:2.4rem}
-  .brand-title.marathi{font-size:1.1rem}
-  .lead-card{width:48%}
+  .brand-title{font-size:clamp(1.6rem,3.6vw,2.6rem)}
   .grid-card{width:48%}
+  .lead-card{width:48%}
 }
 @media (max-width:720px){
-  .brand-wrap.full-width{flex-direction:column;gap:8px;align-items:center}
-  .brand-left{order:0}
-  .brand-center{order:1;max-width:100%}
-  .brand-logo{width:140px}
-  .brand-title{font-size:1.8rem;-webkit-text-stroke:0.4px rgba(0,0,0,0.18);text-shadow:0 4px 12px rgba(0,0,0,0.22)}
-  .main{padding-top:12px}
-  .lead-grid{gap:28px}
+  .header-inner{padding:6px 10px}
+  .brand-wrap.full-width{flex-direction:column;gap:8px;padding:8px 6px}
+  .brand-logo{width:120px}
+  .brand-title{font-size:1.85rem}
+  .brand-center{max-width:100%}
+  .main{padding-top:8px}
   .lead-card{width:92%}
-  .grid-card{width:100%}
-  .grid-card img{aspect-ratio:16/9;max-height:240px}
-}
-/* ===== FINAL POLISH: remove top space, align logo + title, brighten fonts ===== */
-
-/* remove top gap */
-body, .header-full.plain-header.full-header-horiz {
-  margin-top: 0;
-  padding-top: 0;
-}
-
-/* pull header upward */
-.header-inner {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-/* align logo very close to title */
-.brand-wrap.full-width {
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-}
-.brand-left {
-  margin: 0;
-  padding: 0;
-}
-.brand-logo {
-  width: 150px;
-  height: auto;
-  margin-right: 10px;
-  object-fit: contain;
-}
-
-/* make foundation name brighter */
-.brand-title {
-  font-size: clamp(2.2rem, 4vw, 3.6rem);
-  line-height: 1.05;
-  background: linear-gradient(90deg, #ff1744, #ff9100, #00bcd4, #00e676);
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-stroke: 0.8px rgba(0,0,0,0.4);
-  text-shadow: 0 6px 22px rgba(0,0,0,0.55);
-  font-weight: 900;
-  margin-bottom: 0;
-}
-
-/* Marathi subtitle also bright */
-.brand-title.marathi {
-  background: linear-gradient(90deg, #ff6f00, #ff3d00, #00c853);
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-stroke: 0.5px rgba(0,0,0,0.35);
-  text-shadow: 0 4px 14px rgba(0,0,0,0.45);
-  font-weight: 800;
-}
-
-/* make all section headings and card headers bright & readable */
-.section-heading,
-.card-header,
-.grid-card h4,
-.lead-name,
-.tab {
-  background: linear-gradient(90deg, #ff1744, #ff9100, #00bcd4);
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-stroke: 0.6px rgba(0,0,0,0.3);
-  text-shadow: 0 4px 16px rgba(0,0,0,0.45);
-  font-weight: 900;
-}
-
-/* ensure page content sits close below header */
-.main {
-  padding-top: 8px;
-}
-
-/* reduce hero top margin */
-.hero-wide {
-  margin-top: 12px;
-}
-
-/* responsive: stack logo/title properly */
-@media (max-width: 720px) {
-  .brand-wrap.full-width {
-    flex-direction: column;
-    gap: 4px;
-  }
-  .brand-logo {
-    margin: 0 auto 4px;
-    width: 130px;
-  }
-  .brand-title {
-    font-size: 2rem;
-  }
+  .grid-card{width:92%}
 }

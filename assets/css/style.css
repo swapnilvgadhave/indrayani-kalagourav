@@ -1,4 +1,195 @@
-<div class="tab">
-  <div class="eng">Programs</div>
-  <div class="mar">कार्यक्रम</div>
-</div>
+/* ---------- RESTORE+FIX: full stylesheet - header horizontal, boxed tabs, rectangular images ---------- */
+
+/* minimal safe top-space fix to ensure header sits flush */
+body > :first-child:not(header) {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 0 !important;
+}
+.header-full.plain-header.full-header-horiz {
+  margin-top: 0 !important;
+  top: 0 !important;
+  position: relative !important;
+}
+
+/* Vars */
+:root{
+  --accent1:#ff0066;
+  --accent2:#ff7a00;
+  --accent3:#00c2ff;
+  --text:#082034;
+  --card:#ffffff;
+}
+
+/* Reset */
+* { box-sizing: border-box; }
+html,body { margin:0; padding:0; font-family: "Inter", "Poppins", Arial, sans-serif; -webkit-font-smoothing:antialiased; }
+
+/* Header full-width horizontal layout */
+.header-full.plain-header.full-header-horiz {
+  width:100%;
+  background: linear-gradient(180deg, #fff8f6 0%, #fffefb 60%);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  padding: 8px 12px;
+  display:block;
+  position:relative;
+  z-index:999;
+}
+
+/* Center container to keep header content centered */
+.brand-wrap.full-width {
+  max-width: 1200px;
+  margin: 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+/* Left: logo */
+.brand-left { flex:0 0 auto; display:flex; align-items:center; }
+.brand-logo {
+  width:110px; height:auto; display:block; object-fit:contain;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.12));
+}
+
+/* Center: title (middle) - large bright gradient text */
+.brand-center { flex:1 1 auto; text-align:center; padding:0 10px; }
+.brand-title {
+  margin:0;
+  font-weight:900;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(26px, 3.8vw, 48px);
+  color: transparent;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2), var(--accent3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 0.2px rgba(0,0,0,0.08);
+  text-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+.brand-sub {
+  display:block;
+  font-size: clamp(12px, 1.4vw, 16px);
+  margin-top:6px;
+  color: transparent;
+  background: linear-gradient(90deg, var(--accent3), var(--accent2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 0 5px 14px rgba(0,0,0,0.10);
+}
+
+/* Right: keep placeholder so center stays centered */
+.brand-right { flex:0 0 110px; display:flex; align-items:center; justify-content:flex-end; }
+
+/* Nav row - boxes centered under header (single line on wide screens) */
+.nav-row {
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  padding:12px 8px;
+  max-width:1200px;
+  margin: 6px auto 0;
+  flex-wrap: nowrap; /* force single line on desktop */
+  overflow-x:auto;
+}
+
+/* Tab boxes */
+.tab {
+  min-width:120px;
+  max-width:220px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  padding:10px 14px;
+  border-radius:12px;
+  background: linear-gradient(135deg,#ffd6e0,#fff0d9);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.03);
+  text-align:center;
+}
+.tab .eng { font-weight:800; font-size:1rem; color:#07223a; text-shadow:0 4px 12px rgba(0,0,0,0.06); }
+.tab .mar { font-weight:700; font-size:0.86rem; color:transparent; background:linear-gradient(90deg,var(--accent3),var(--accent2)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+
+/* small top stripe decoration */
+.tab::before {
+  content:"";
+  width: calc(100% - 28px);
+  height:6px;
+  border-radius:8px;
+  background: linear-gradient(90deg,var(--accent1),var(--accent2),var(--accent3));
+  display:block;
+  margin-bottom:6px;
+}
+
+/* Tab hover */
+.tab:hover { transform: translateY(-6px); box-shadow: 0 18px 48px rgba(0,0,0,0.12); }
+
+/* Cards (About, Programs) */
+.card {
+  max-width: 1200px;
+  margin: 18px auto;
+  padding: 18px;
+  background: var(--card);
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.03);
+}
+.card .card-header {
+  display:inline-block;
+  padding:8px 12px;
+  border-radius:8px;
+  background: linear-gradient(90deg,var(--accent1),var(--accent2));
+  color:#fff;
+  font-weight:900;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+  margin-bottom:10px;
+}
+.card .card-text { color:var(--text); line-height:1.6; }
+
+/* Leadership grid and cards */
+.lead-grid { display:flex; gap:28px; flex-wrap:wrap; justify-content:center; padding:10px; }
+.lead-card {
+  width:260px; background:#fff; border-radius:12px; padding:10px; text-align:center;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+}
+.lead-card img {
+  width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:8px; display:block;
+}
+.lead-name { margin-top:8px; font-weight:800; color:var(--accent1); text-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.lead-role { color:#333; font-size:0.95rem; }
+
+/* Hero row / gallery */
+.hero-row { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin:18px 0; }
+.hero-thumb { width: calc(33.333% - 12px); border-radius:10px; overflow:hidden; box-shadow:0 12px 36px rgba(0,0,0,0.06); }
+.hero-thumb img { width:100%; height:220px; object-fit:cover; display:block; }
+
+/* Generic images (force rectangular, no stretch) */
+img {
+  max-width:100%;
+  height:auto;
+  object-fit:cover;
+}
+
+/* Footer */
+.footer { padding:16px; text-align:center; background: linear-gradient(90deg,#fff7f7,#f7fff7); border-top:1px solid rgba(0,0,0,0.03); color:var(--text); }
+
+/* Responsive: wrap tabs on small screens */
+@media (max-width: 900px) {
+  .nav-row { flex-wrap:wrap; gap:10px; }
+  .tab { min-width:46%; max-width:46%; }
+  .hero-thumb img { height:160px; }
+  .lead-card { width: 92%; }
+  .brand-right { display:none; }
+  .brand-logo { width:96px; }
+  .brand-title { font-size: 22px; }
+}
+
+@media (max-width: 520px) {
+  .tab { min-width:100%; max-width:100%; }
+  .brand-wrap.full-width { padding: 8px; gap:6px; }
+  .brand-title { font-size: 18px; }
+  .hero-thumb { width:100%; }
+}

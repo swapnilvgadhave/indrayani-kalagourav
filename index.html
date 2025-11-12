@@ -8,6 +8,7 @@
 </head>
 
 <body>
+  <!-- Header -->
   <header class="header-full plain-header full-header-horiz">
     <div class="header-inner">
       <div class="brand-wrap full-width">
@@ -17,21 +18,23 @@
         <div class="brand-center">
           <h1 class="brand-title">Indrayani Kalagourav Foundation</h1>
           <h2 class="brand-title marathi">इंद्रायणी कलागौरव फाउंडेशन</h2>
-          <p>Art · Education · Humanity कला · शिक्षण · मानवता</p>
+          <p>Art · Education · Humanity | कला · शिक्षण · मानवता</p>
         </div>
       </div>
     </div>
 
+    <!-- Navigation -->
     <nav class="main-nav">
-      <div class="tab"><span>Leadership</span><small>नेतृत्व</small></div>
       <div class="tab"><span>About</span><small>माहिती</small></div>
       <div class="tab"><span>Programs</span><small>कार्यक्रम</small></div>
+      <div class="tab"><span>Leadership</span><small>नेतृत्व</small></div>
       <div class="tab"><span>Support</span><small>सहयोग</small></div>
       <div class="tab"><span>Contact</span><small>संपर्क</small></div>
     </nav>
   </header>
 
-  <main class="site main">
+  <!-- Main content -->
+  <main class="main">
     <section class="leadership-section">
       <h2 class="section-heading">Leadership & Trustees · नेतृत्व व ट्रस्टी</h2>
       <div class="lead-grid">
@@ -56,20 +59,25 @@
     <section class="card">
       <h3 class="card-header">About · माहिती</h3>
       <p class="card-text">
-        Indrayani Kalagourav Foundation preserves local arts and provides education through scholarships, workshops, and community programs.<br />
-        इंद्रायणी कलागौरव फाउंडेशन स्थानिक कला जतन व शैक्षणिक उपक्रमांद्वारे सामाजिक विकासासाठी कार्य करते.
+        Indrayani Kalagourav Foundation is dedicated to promoting art, education,
+        and community service in Maharashtra. We aim to create opportunities for
+        artists, students, and volunteers to come together for social betterment.<br /><br />
+        इंद्रायणी कलागौरव फाउंडेशन महाराष्ट्रातील कला, शिक्षण आणि सामाजिक सेवेसाठी
+        कार्य करते. आमचा उद्देश कलाकार, विद्यार्थी आणि स्वयंसेवक यांना एकत्र आणून
+        समाजविकासाला हातभार लावणे आहे.
       </p>
     </section>
 
     <section class="card">
       <h3 class="card-header">Programs · कार्यक्रम</h3>
       <ul class="card-text">
-        <li><b>Education Support</b> · शैक्षणिक सहयोग: Scholarships, mentoring, coaching, book distribution, digital learning.</li>
-        <li><b>Cultural Workshops</b> · सांस्कृतिक कार्यशाळा: Music, dance, art classes, artist residencies, and youth showcases.</li>
-        <li><b>Community</b> · समुदाय: Health camps, environmental drives, and volunteer programs.</li>
+        <li><b>Education Support</b> (शैक्षणिक सहयोग) — Scholarships and digital learning tools for rural students.</li>
+        <li><b>Art & Culture</b> (कला आणि संस्कृती) — Local exhibitions, folk dance, and music promotion.</li>
+        <li><b>Community Help</b> (सामाजिक मदत) — Health checkups, environment drives, and youth volunteering.</li>
       </ul>
     </section>
 
+    <!-- Hero slideshow -->
     <section class="hero-wide">
       <div class="hero-slideshow">
         <div class="hero-slide visible" style="background-image:url('assets/images/slide1.jpg')"></div>
@@ -79,16 +87,20 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="footer">
-    <div class="footer-promo">
-      Website Developed & Maintained by <b>Avantika Software Systems</b> —
-      Managing Director <b>Swapnil Gadhave</b> —
+    <div>
+      © <span id="year"></span> Indrayani Kalagourav Foundation · इंद्रायणी कलागौरव फाउंडेशन
+    </div>
+    <div>
+      Website Developed & Maintained by <strong>Avantika Software Systems</strong> —
+      Managing Director <strong>Swapnil Gadhave</strong> —
       For Business Mail us @ <a href="mailto:hello@avantika.com">hello@avantika.com</a>
     </div>
   </footer>
 
   <script>
-    // simple slideshow
+    // slideshow rotation
     const slides = document.querySelectorAll(".hero-slide");
     let i = 0;
     setInterval(() => {
@@ -96,6 +108,8 @@
       i = (i + 1) % slides.length;
       slides[i].classList.add("visible");
     }, 4000);
+
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>

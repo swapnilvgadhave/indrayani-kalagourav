@@ -240,3 +240,40 @@ body {
     margin: 16px;
   }
 }
+/* --- Fix for unwanted blank space above logo and name --- */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Ensure nothing sits above the header */
+body > *:first-child:not(header) {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  display: none !important;
+}
+
+/* Keep header in normal flow */
+.header-full.plain-header.full-header-horiz {
+  position: relative !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Center logo and name perfectly */
+.brand-wrap.full-width {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: 8px !important;
+}
+
+/* Optional: reduce page top offset if any script inserts space */
+body::before {
+  content: none !important;
+}

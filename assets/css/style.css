@@ -1,3 +1,85 @@
+/* ---------- FORCE HORIZONTAL TABS + STANDARD RECTANGULAR IMAGES (paste at top) ---------- */
+
+/* 1) Strong, broad rule to force nav/tabs into a single horizontal row (covers many HTML structures) */
+header nav,
+header .nav, header .navbar, .header .nav, .nav, .navbar, .navigation, .nav-row, .tabs-row, .tabs, .menu, .menu-list, .nav-container, .nav-wrap, .tabs-container {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 16px !important;
+  overflow-x: auto !important;
+  padding: 6px 12px !important;
+}
+
+/* If tabs are rendered as a <ul>, make its children horizontal too */
+header nav ul, .nav ul, ul.nav, ul.menu, .menu-list, .nav-list {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 12px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+/* Make individual tab items box-like and inline */
+.menu li, .nav li, .menu-item, .nav-item, .tab, .nav-tab, .tab-box, .menu-link, .tab-link {
+  display: inline-flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 130px !important;
+  max-width: 220px !important;
+  padding: 10px 14px !important;
+  border-radius: 12px !important;
+  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.75)) !important;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.06) !important;
+  border: 1px solid rgba(0,0,0,0.03) !important;
+  text-align: center !important;
+  white-space: normal !important;
+}
+
+/* Bilingual spacing: English then Marathi lines */
+.menu li .eng, .tab .eng, .menu-item .eng, .tab .english { margin-bottom:6px !important; font-weight:800 !important; color:#07223a !important; }
+.menu li .mar, .tab .mar, .menu-item .mar { margin-top:4px !important; font-weight:700 !important; color:#ff6a8a !important; }
+
+/* 2) Force thumbnails and content images to be rectangular and NOT shown at original size.
+   Use selectors limited to content areas so brand logo is not affected. */
+main img, .content img, .card img, .hero-thumb img, .lead-card img, .gallery img, .team-photo, .profile-photo, .about img, .programs img {
+  width: 100% !important;
+  max-width: 100% !important;
+  aspect-ratio: 4 / 3 !important;    /* standard rectangular */
+  height: auto !important;
+  max-height: 360px !important;      /* prevents huge original-size images from expanding page */
+  object-fit: cover !important;      /* crop to fill without stretching */
+  display: block !important;
+  border-radius: 8px !important;
+}
+
+/* If images are inside dedicated containers, make containers fixed width columns */
+.hero-row, .gallery, .lead-grid, .programs-row {
+  display: flex !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+}
+.hero-thumb { width: calc(33.333% - 12px) !important; max-width: 33.333% !important; }
+
+/* mobile adjustments - allow tabs to wrap when viewport is small */
+@media (max-width: 900px) {
+  header nav, .nav-row, .tabs-row, .tabs, .menu { flex-wrap: wrap !important; gap: 10px !important; }
+  .menu li, .tab, .nav-tab { min-width: 46% !important; max-width: 46% !important; }
+  .hero-thumb { width: 100% !important; max-width: 100% !important; }
+}
+@media (max-width: 520px) {
+  .menu li, .tab, .nav-tab { min-width: 100% !important; max-width: 100% !important; }
+  .hero-thumb { height: 180px !important; }
+}
+
+/* 3) Safety: leave brand/logo untouched */
+.brand-logo, .site-logo, header .brand-logo, .brand img { width: auto !important; height: auto !important; object-fit: contain !important; }
 /* ---------- Immediate overrides: force horizontal tabs + rectangular images ---------- */
 
 /* 1) Ensure nav row is strictly horizontal on desktop and centered */

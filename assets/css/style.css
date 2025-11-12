@@ -1,3 +1,10 @@
+/* assets/css/style.css - Final combined stylesheet
+   Includes fonts, layout, visual theme, tab/image fixes, boxed headers
+*/
+
+/* Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@600;800;900&family=Poppins:wght@400;600;800&display=swap');
+
 :root{
   --accent-1:#ff0066;   /* vivid pink */
   --accent-2:#ff9800;   /* vivid orange */
@@ -7,18 +14,22 @@
   --muted:#16333a;
   --maxw:1360px;
   --header-height:120px;
+  --card-bg: #ffffff;
 }
 
 /* reset */
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{
-  font-family:'Poppins',system-ui,Arial,sans-serif;
+  font-family:'Inter', 'Poppins', system-ui, Arial, sans-serif;
   background: linear-gradient(180deg,#fff0f7 0%, #fff8ea 30%, #e6fff8 100%);
   color:var(--dark);
   -webkit-font-smoothing:antialiased;
 }
 .site{max-width:var(--maxw);margin:0 auto;transition:opacity .25s ease;padding-bottom:48px}
+
+/* small guard so header sits flush (non-destructive) */
+.header-full.plain-header { margin-top: 0 !important; position: relative; top: 0; }
 
 /* preloader */
 #preloader{position:fixed;inset:0;background:radial-gradient(circle at 25% 25%, #ffffff, #f6fbff);display:flex;align-items:center;justify-content:center;z-index:9999}
@@ -30,40 +41,91 @@ body{
 /* header: full-width horizontal */
 .header-full.plain-header{position:relative;overflow:visible;background:transparent;padding-top:8px;padding-bottom:6px}
 .header-inner{position:relative;z-index:3;max-width:var(--maxw);margin:0 auto;padding:6px 20px}
-.brand-wrap.full-width{display:flex;align-items:center;justify-content:space-between;width:100%;gap:18px}
-.brand-left{flex:0 0 180px;display:flex;align-items:center;justify-content:flex-start}
-.brand-center{flex:1 1 auto;text-align:center}
-.brand-end{flex:0 0 180px;opacity:0} /* spacer to balance logo visually */
 
-.brand-logo{width:160px;height:160px;object-fit:contain;border-radius:8px;box-shadow:0 28px 100px rgba(0,0,0,0.06)}
+/* Brand row: ensure one horizontal line */
+.brand-wrap.full-width{
+  display:flex;
+  align-items:center;
+  justify-content:space-between; /* left logo, center title, right spacer */
+  width:100%;
+  gap:18px;
+  max-width:var(--maxw);
+  margin:0 auto;
+  box-sizing:border-box;
+}
+.brand-left{flex:0 0 140px;display:flex;align-items:center;justify-content:flex-start}
+.brand-center{flex:1 1 auto;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.brand-end{flex:0 0 140px;opacity:0} /* spacer to balance logo visually */
+
+/* Logo */
+.brand-logo{
+  width:120px;            /* smaller width so title stays on same line */
+  height:auto;
+  object-fit:contain;
+  border-radius:8px;
+  box-shadow:0 28px 100px rgba(0,0,0,0.06);
+}
+
+/* Title baseline */
 .brand-text{color:var(--dark)}
-.brand-title{font-family:'Playfair Display',serif;font-size:2.2rem;line-height:1;margin:0;font-weight:800;color:var(--dark)}
-.big-title{font-size:2.6rem}
+.brand-title{
+  font-family:'Playfair Display', serif;
+  font-size:2.2rem;
+  line-height:1;
+  margin:0;
+  font-weight:800;
+  color:var(--dark);
+}
 .brand-title.marathi{font-size:1.25rem;margin-top:6px}
+.big-title{font-size:2.6rem}
 .sub-title{font-size:1.15rem}
 .brand-sub{margin-top:6px;font-weight:600;color:var(--muted)}
 
-/* multicolor text utility (stronger) */
+/* multicolor utils */
 .multi{
   background: linear-gradient(90deg,var(--accent-1),var(--accent-2),var(--accent-3));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-weight:900;
-  letter-spacing:0.3px;
+  -webkit-background-clip: text; background-clip: text; color: transparent; font-weight:900; letter-spacing:0.3px;
 }
 .multi-sub{
   background: linear-gradient(90deg,var(--accent-2),var(--accent-3),var(--accent-4));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-weight:800;
+  -webkit-background-clip: text; background-clip: text; color: transparent; font-weight:800;
 }
 
-/* nav boxed tabs - brighter */
-.main-nav{position:relative;z-index:4;max-width:var(--maxw);margin:10px auto 0;display:flex;gap:12px;justify-content:center;padding:8px 20px}
-.tab{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;border-radius:14px;background:#fff;border:2px solid rgba(0,0,0,0.06);color:var(--dark);text-decoration:none;font-weight:800;min-width:120px;box-shadow:0 12px 36px rgba(0,0,0,0.06);transition:transform .12s, box-shadow .12s}
-.tab small{font-weight:600;color:var(--muted);font-size:0.8rem;margin-top:4px}
+/* nav boxed tabs - brighter and stretched evenly */
+.main-nav{
+  position:relative;
+  z-index:4;
+  max-width:var(--maxw);
+  margin:10px auto 0;
+  display:flex;
+  gap:28px;
+  justify-content:space-evenly; /* stretch tabs evenly */
+  align-items:center;
+  padding:10px 24px;
+  box-sizing:border-box;
+  flex-wrap:wrap; /* allow wrap on small screens */
+}
+.tab{
+  display:inline-flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:12px 18px;
+  border-radius:14px;
+  background:#fff;
+  border:2px solid rgba(0,0,0,0.12);
+  color:var(--dark);
+  text-decoration:none;
+  font-weight:800;
+  min-width:140px;
+  max-width:280px;
+  flex:1 1 0%;
+  box-shadow:0 12px 36px rgba(0,0,0,0.06);
+  transition:transform .12s, box-shadow .12s;
+  text-align:center;
+  white-space:normal;
+}
+.tab small{font-weight:600;color:var(--muted);font-size:0.8rem;margin-top:6px}
 .tab:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,0.09)}
 .tab.active{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:#fff;border-color:transparent;box-shadow:0 26px 90px rgba(0,0,0,0.10)}
 
@@ -89,14 +151,14 @@ body{
 .leadership-section{margin:22px 0;text-align:center}
 .section-heading.centered{display:block;margin:0 auto;font-size:1.15rem}
 .lead-grid{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;align-items:flex-start;margin-top:16px}
-.lead-card{width:200px;padding:14px;border-radius:12px;background:#fff;box-shadow:0 16px 60px rgba(0,0,0,0.06);text-align:center;position:relative;overflow:hidden}
+.lead-card{width:200px;padding:14px;border-radius:12px;background:var(--card-bg);box-shadow:0 16px 60px rgba(0,0,0,0.06);text-align:center;position:relative;overflow:hidden}
 .lead-card img{width:100%;height:150px;object-fit:cover;border-radius:10px}
 .lead-name{font-weight:800;margin-top:10px;color:var(--dark)}
 .lead-role{color:var(--muted);font-size:0.95rem}
 
 /* cards */
 .top-cards .cards-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:18px 0}
-.card{padding:20px;border-radius:12px;position:relative;overflow:hidden;color:var(--dark);box-shadow:0 24px 100px rgba(0,0,0,0.06);background:#fff}
+.card{padding:20px;border-radius:12px;position:relative;overflow:hidden;color:var(--dark);box-shadow:0 24px 100px rgba(0,0,0,0.06);background:var(--card-bg)}
 .card-header{display:inline-block;padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:#fff;font-weight:800;margin-bottom:12px}
 .boxed{display:inline-block;padding:8px 12px;border-radius:8px;background:rgba(0,0,0,0.03);color:var(--dark);font-weight:700}
 .card-text{color:var(--dark);font-weight:600;line-height:1.5}
@@ -116,7 +178,7 @@ body{
 
 /* programs grid */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:14px}
-.grid-card{background:#fff;padding:16px;border-radius:12px;box-shadow:0 22px 80px rgba(0,0,0,0.06)}
+.grid-card{background:var(--card-bg);padding:16px;border-radius:12px;box-shadow:0 22px 80px rgba(0,0,0,0.06)}
 .grid-card img{width:100%;height:220px;object-fit:cover;border-radius:10px}
 .card-title{font-weight:900;margin-top:10px}
 .card-desc{color:var(--muted);margin-top:8px;line-height:1.5}
@@ -132,7 +194,7 @@ body{
 
 /* responsive */
 @media (max-width:1100px){
-  .brand-logo{width:120px;height:120px}
+  .brand-logo{width:120px;height:auto}
   .big-title{font-size:1.8rem}
   .hero-head{font-size:1.6rem}
   .header-inner{padding:6px 12px}
@@ -146,15 +208,48 @@ body{
   .main{padding:14px}
   .hero-slideshow{height:36vh}
 }
-/* ---------- User requests: bigger bright title, spaced marathi, stretched tabs, dark borders on fonts ---------- */
 
-/* 1) Foundation name: larger, brighter gradient, dark outline for visibility */
+/* ---------- small alignment + image sizing fix ---------- */
+/* Force nav tabs to line up horizontally and center */
+.main-nav {
+  flex-wrap: nowrap !important;
+  justify-content: center !important;
+  overflow-x: auto !important;
+}
+
+/* Keep each tab same height and prevent wrapping of bilingual text */
+.tab {
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  white-space: normal !important;
+}
+
+/* Standardize all images to rectangular aspect, not original pixel size */
+.lead-card img,
+.grid-card img,
+.hero-slideshow img,
+.hero-slide img,
+.programs img,
+.card img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 320px !important;
+  object-fit: cover !important;
+  aspect-ratio: 4 / 3 !important;
+  border-radius: 10px !important;
+}
+
+/* ---------- bright multicolor title + tab stretch + dark font outlines ---------- */
+
+/* Foundation name: larger, bright gradient, dark outline for readability */
 .brand-title {
-  font-size: clamp(34px, 5.4vw, 64px) !important;     /* larger and responsive */
+  font-size: clamp(36px, 5vw, 66px) !important;
   line-height: 1.02 !important;
   letter-spacing: 0.2px !important;
-  -webkit-text-stroke: 1.2px rgba(2,6,12,0.48) !important; /* dark border */
-  text-shadow: 0 10px 28px rgba(0,0,0,0.32) !important;   /* deep shadow for contrast */
+  -webkit-text-stroke: 1.2px rgba(2,6,12,0.48) !important;
+  text-shadow: 0 10px 28px rgba(0,0,0,0.32) !important;
   background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3)) !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
@@ -164,8 +259,8 @@ body{
 
 /* more space between English and Marathi title line */
 .brand-title.marathi {
-  margin-top: 10px !important; /* increased gap */
-  font-size: clamp(14px, 1.8vw, 20px) !important;
+  margin-top: 12px !important;
+  font-size: clamp(18px, 2.2vw, 24px) !important;
   -webkit-text-stroke: 0.9px rgba(2,6,12,0.40) !important;
   text-shadow: 0 6px 18px rgba(0,0,0,0.24) !important;
 }
@@ -173,8 +268,7 @@ body{
 /* keep the brand center block vertically compact but the titles visually separate */
 .brand-center { padding-top: 2px !important; padding-bottom: 2px !important; }
 
-/* 2) Stretch tabs horizontally and increase space between them */
-/* make nav a flexible row that allows tabs to grow evenly */
+/* Stretch tabs horizontally and increase space between them */
 .main-nav {
   display: flex !important;
   gap: 28px !important;                /* more space between tabs */
@@ -242,7 +336,7 @@ body{
   -webkit-text-stroke: 0.6px rgba(2,6,12,0.32) !important;
 }
 
-/* 4) Small responsive tweaks so larger title and stretched tabs behave on small screens */
+/* Small responsive tweaks */
 @media (max-width: 980px) {
   .brand-title { font-size: clamp(26px, 7.2vw, 42px) !important; -webkit-text-stroke: 0.9px rgba(2,6,12,0.36) !important; }
   .main-nav { gap: 14px !important; padding-left:12px !important; padding-right:12px !important; }
